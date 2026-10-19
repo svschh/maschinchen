@@ -452,8 +452,8 @@ function termsOf(d){
 }
 var URLRE=/https?:\/\/[^\s<>"')\]]+/g;
 function escL(s){
-  s=String(s==null?'':s);var out='',last=0,m;URLRE.lastIndex=0;
-  while((m=URLRE.exec(s))){out+=esc(s.slice(last,m.index))+'<a class="ext" href="'+esc(m[0])+'" target="_blank" rel="noopener noreferrer">'+esc(m[0].replace(/^https?:\/\/(www\.)?/,'').slice(0,40))+'</a>';last=m.index+m[0].length;}
+  s=String(s==null?'':s);var out='',last=0,m,RE2=new RegExp(URLRE.source,'g');
+  while((m=RE2.exec(s))){out+=esc(s.slice(last,m.index))+'<a class="ext" href="'+esc(m[0])+'" target="_blank" rel="noopener noreferrer">'+esc(m[0].replace(/^https?:\/\/(www\.)?/,'').slice(0,40))+'</a>';last=m.index+m[0].length;}
   return out+esc(s.slice(last));
 }
 function linkTerms(seg,d){
