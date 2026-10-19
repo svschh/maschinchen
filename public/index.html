@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#EDF0F4">
+<meta name="application-name" content="Maschinchen">
+<meta name="apple-mobile-web-app-title" content="Maschinchen">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Maschinchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: Millimeterpapier-Grund, schmale Spalte, Schnittmuster-Bogen als Karten; Größenwahl und Fortschritt kleben oben. */
+:root{
+  --paper:#EDF0F4; --sheet:#FFFFFF; --ink:#13171F; --muted:#5A6474; --line:#CBD2DD;
+  --grid:rgba(43,75,255,.07); --accent:#2B4BFF; --on-accent:#FFFFFF; --done:#0E8F6E;
+  --mark:#FFE770; --mark-ink:#13171F; --danger:#C62F3E; --soft:#E3E8F0;
+  --f-display:'Bricolage Grotesque',system-ui,-apple-system,sans-serif;
+  --f-body:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1218; --sheet:#181D27; --ink:#E8ECF3; --muted:#8F9AAD; --line:#2B3342;
+    --grid:rgba(124,146,255,.07); --accent:#7C92FF; --on-accent:#0F1218; --done:#3FD0A6;
+    --mark:#5B4C0C; --mark-ink:#FFF1A8; --danger:#FF7A87; --soft:#222937; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1218; --sheet:#181D27; --ink:#E8ECF3; --muted:#8F9AAD; --line:#2B3342;
+  --grid:rgba(124,146,255,.07); --accent:#7C92FF; --on-accent:#0F1218; --done:#3FD0A6;
+  --mark:#5B4C0C; --mark-ink:#FFF1A8; --danger:#FF7A87; --soft:#222937; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px;
+  color:var(--ink); font:400 1rem/1.5 var(--f-body);
+  padding-block:0 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:10}
+.wrap{max-width:720px;margin:0 auto}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible,textarea:focus-visible,label:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+mark{background:var(--mark);color:var(--mark-ink);padding:0 .28em;border-radius:3px;font-weight:600;font-variant-numeric:tabular-nums}
+.mono{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
+.eyebrow{font:500 0.6875rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border:1.5px solid var(--ink);border-radius:6px;font-weight:600;background:var(--sheet);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.danger{border-color:var(--danger);color:var(--danger)}
+.btn.ghost{border-color:var(--line);color:var(--muted);font-weight:500}
+.btn:active{transform:translateY(1px)}
+
+/* Bibliothek */
+.lib-head{padding:28px 0 20px;display:flex;flex-direction:column;gap:14px}
+.lib-head h1{font-size:clamp(1.8rem,7vw,3rem);line-height:1;font-weight:700;letter-spacing:-.02em}
+.lib-head p{margin:0;color:var(--muted);max-width:42ch}
+.cards{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.card{display:block;width:100%;text-align:left;background:var(--sheet);border:1.5px solid var(--line);border-radius:6px;padding:16px;transition:border-color .15s}
+.card:hover{border-color:var(--ink)}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}
+.chip{font:500 0.75rem/1 var(--f-mono);padding:5px 8px;border-radius:4px;background:var(--soft);color:var(--ink)}
+.card h2{font-size:1.35rem;line-height:1.15;font-weight:650;margin-bottom:14px}
+.meter{display:flex;align-items:center;gap:12px}
+.track{flex:1;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--accent);border-radius:4px;transition:width .25s}
+.track i.full{background:var(--done)}
+.meter .mono{font-size:0.8125rem;color:var(--muted);white-space:nowrap}
+.empty{background:var(--sheet);border:1.5px dashed var(--line);border-radius:6px;padding:28px 20px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.empty h2{font-size:1.25rem}
+.empty p{margin:0;color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Anleitung: oberer Streifen */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1.5px solid var(--line);padding:6px 0 0;margin-bottom:8px}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px}
+.back{font-weight:600;min-height:44px;padding-right:12px;display:inline-flex;align-items:center;gap:6px;color:var(--accent)}
+.pct{font:500 0.9375rem/1 var(--f-mono);font-variant-numeric:tabular-nums}
+.sizes{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.sizes::-webkit-scrollbar{display:none}
+.sizes .eyebrow{flex:none;margin-right:4px}
+.size{flex:none;min-width:48px;min-height:40px;padding:0 14px;border:1.5px solid var(--line);border-radius:6px;background:var(--sheet);font:500 0.9375rem/1 var(--f-mono)}
+.size[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.bar .track{border-radius:0;height:4px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)))}
+.bar .track i{border-radius:0}
+
+.p-head{padding:18px 0 8px;display:flex;flex-direction:column;gap:12px}
+.p-head h1{font-size:clamp(1.7rem,6.5vw,2.8rem);line-height:1.02;font-weight:700;letter-spacing:-.02em}
+.done-flag{display:inline-block;align-self:flex-start;background:var(--done);color:var(--paper);font:500 0.75rem/1 var(--f-mono);padding:6px 9px;border-radius:4px;letter-spacing:.08em;text-transform:uppercase}
+.sizehint{margin:0;font-size:0.875rem;color:var(--muted)}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:0.9375rem}
+.meta dt{font:500 0.75rem/1.9 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+
+/* Blöcke */
+.sheet{background:var(--sheet);border:1.5px solid var(--line);border-radius:6px;margin-top:14px;overflow:hidden}
+.sh{display:flex;align-items:stretch}
+.sh .st{flex:1;min-width:0;display:flex;align-items:center;gap:10px;text-align:left;padding:12px 14px 12px 2px;min-height:56px}
+.stitle{flex:1;min-width:0;font:650 1.1rem/1.2 var(--f-display);overflow-wrap:anywhere}
+.cnt{font:500 0.8125rem/1 var(--f-mono);color:var(--muted);white-space:nowrap}
+.chev{flex:none;width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;transition:transform .15s}
+.sheet.open .chev{transform:rotate(180deg)}
+.sec-note{margin:0;padding:0 16px 12px;color:var(--muted);font-size:0.875rem}
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+
+/* Häkchen */
+.chk{flex:none;display:flex;align-items:flex-start;justify-content:center;width:52px;padding-top:13px;min-height:44px}
+.box{width:26px;height:26px;border:2px solid var(--ink);border-radius:5px;display:grid;place-items:center;background:var(--sheet);transition:background .12s,border-color .12s}
+.box svg{width:16px;height:16px;stroke:var(--on-accent);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.box.on{background:var(--done);border-color:var(--done)}
+.box.on svg{opacity:1}
+.box.on svg{stroke:var(--paper)}
+.box.part{border-color:var(--done)}
+.box.part::after{content:"";width:10px;height:2.4px;background:var(--done);border-radius:2px}
+.sh .chk{align-items:center;padding-top:0}
+
+.step{display:flex;align-items:flex-start;border-bottom:1px solid var(--line);cursor:pointer}
+.step:last-child{border-bottom:0}
+.step .body{flex:1;min-width:0;padding:12px 16px 12px 0}
+.lbl{display:inline-block;font:500 0.75rem/1 var(--f-mono);letter-spacing:.04em;color:var(--accent);margin-bottom:4px;text-transform:uppercase}
+.txt{overflow-wrap:anywhere}
+.note{display:block;margin-top:4px;font-size:0.875rem;color:var(--muted)}
+.step.done .txt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.step.done mark{background:transparent;color:var(--muted);font-weight:500}
+.step.done .lbl{color:var(--muted)}
+
+.ctr{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.ctr button{width:44px;height:44px;border:1.5px solid var(--ink);border-radius:6px;font:500 1.375rem/1 var(--f-mono);background:var(--sheet);display:grid;place-items:center}
+.ctr button.plus{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.ctr .num{font:500 1.125rem/1 var(--f-mono);min-width:76px;text-align:center;font-variant-numeric:tabular-nums}
+.ctr .unit{font-size:0.875rem;color:var(--muted)}
+.step.done .ctr button{opacity:.55}
+
+.info{display:flex;gap:12px;padding:12px 16px;background:var(--soft);border-bottom:1px solid var(--line);font-size:0.9375rem}
+.info:last-child{border-bottom:0}
+.info .eyebrow{flex:none;padding-top:5px}
+.info div{min-width:0;overflow-wrap:anywhere}
+
+.mats{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.mat{display:flex;align-items:flex-start;border-bottom:1px solid var(--line);cursor:pointer}
+.mat:last-child{border-bottom:0}
+.mat .body{flex:1;min-width:0;padding:11px 16px 11px 0;overflow-wrap:anywhere}
+.mat.done .body{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.mat.done mark{background:transparent;color:var(--muted);font-weight:500}
+.sheet > h2.plain{font-size:1.1rem;padding:14px 16px}
+
+.foot{margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.foot .row{align-items:center}
+.foot .q{font-size:0.875rem;color:var(--muted)}
+.loading{padding:60px 0;text-align:center;color:var(--muted);font:500 0.8125rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+
+/* Import-Fenster */
+.ov{position:fixed;inset:0;z-index:50;background:rgba(10,12,18,.55);display:flex;align-items:flex-end;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-inset-left,0px))}
+.dlg{background:var(--paper);color:var(--ink);width:100%;max-width:560px;max-height:100%;overflow-y:auto;border-radius:10px 10px 0 0;
+  border:1.5px solid var(--ink);border-bottom:0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
+.dlg h2{font-size:1.5rem;font-weight:700}
+.dlg p{margin:0;color:var(--muted);font-size:0.9375rem}
+.dlg .or{display:flex;align-items:center;gap:12px;font:500 0.6875rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dlg .or::before,.dlg .or::after{content:"";flex:1;height:1px;background:var(--line)}
+textarea{width:100%;min-height:130px;resize:vertical;background:var(--sheet);color:var(--ink);border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;font:14px/1.45 var(--f-mono)}
+.err{color:var(--danger);font-size:0.875rem;font-weight:500}
+.dlg .row{justify-content:flex-end}
+/* Fotos */
+.card{display:flex;gap:14px;align-items:stretch}
+.card-main{flex:1;min-width:0}
+.cover{width:88px;min-height:88px;flex:none;object-fit:cover;border-radius:4px;align-self:stretch;background:var(--soft)}
+.photos{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.hero{display:block;width:100%;border:1.5px solid var(--line);border-radius:6px;overflow:hidden;background:var(--soft)}
+.hero img{display:block;width:100%;aspect-ratio:16/10;max-height:280px;object-fit:cover}
+.strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.pt{flex:none;width:76px;height:76px;border:1.5px solid var(--line);border-radius:6px;overflow:hidden;background:var(--soft);display:grid;place-items:center}
+.pt img{width:100%;height:100%;object-fit:cover;display:block}
+.pt.add{border-style:dashed;color:var(--muted);align-content:center;gap:4px;background:var(--sheet)}
+.pt.add .plus{font:500 1.375rem/1 var(--f-mono)}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(6,8,12,.95);display:flex;flex-direction:column;gap:12px;color:#fff;
+  padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.lb .stage{flex:1;min-height:0;display:grid;place-items:center}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px}
+.lb .acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.lb .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.55);min-height:44px}
+.lb .btn.danger{color:#FF9AA4;border-color:#FF9AA4}
+.lb .btn:disabled{opacity:.5}
+.lb .count{font:500 0.8125rem/1 var(--f-mono);color:rgba(255,255,255,.7);min-width:48px;text-align:center}
+/* Größen-Editor */
+.size.edit{border-style:dashed;color:var(--muted);font-family:var(--f-body);font-weight:500;font-size:0.875rem}
+.szl{display:flex;flex-direction:column;gap:8px}
+.szr{display:flex;gap:8px;align-items:center}
+.ib{flex:none;width:44px;height:44px;border:1.5px solid var(--line);border-radius:6px;background:var(--sheet);font:500 1.125rem/1 var(--f-mono);display:grid;place-items:center}
+.ib:disabled{opacity:.35}
+.dlg input[type=text],.dlg input[type=password]{width:100%;min-width:0;min-height:44px;border:1.5px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--ink);padding:0 12px;font:16px var(--f-body)}
+.szg{display:flex;flex-direction:column;gap:10px;padding-top:6px}
+.szg h3{font-size:1.1rem}
+.szv .ctx{display:block;font-size:0.8125rem;color:var(--muted);margin-bottom:4px;overflow-wrap:anywhere}
+.new-tag{flex:none;font:500 0.6875rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+/* Format-Vorlage */
+.spec{border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;background:var(--sheet)}
+.spec summary{cursor:pointer;font-weight:600;min-height:28px}
+.spec p{margin:8px 0}
+.spec textarea{min-height:120px;margin-bottom:8px;font-size:0.75rem}
+/* Erklärung */
+.help{border-top:1px solid var(--line);padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.help .eyebrow{margin:0}
+.abbr{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}
+.abbr dt{font:500 0.875rem/1.6 var(--f-mono);color:var(--accent)}
+.abbr dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.tech{display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid var(--line)}
+.tech h4{margin:0;font:650 1rem/1.25 var(--f-display)}
+.tech p,.tech ol,.dlg ol{margin:0;font-size:0.9375rem}
+.tech ol,.dlg ol{padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
+.ext{color:var(--accent);text-decoration:underline;word-break:break-all}
+.term{display:inline;padding:0;font:inherit;color:inherit;text-align:inherit;border-bottom:1.5px dotted var(--accent);cursor:help}
+.step.done .term{border-bottom-color:var(--line)}
+.dlg .tm-k{font:500 0.75rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+/* Maschenprobe */
+.gauge{display:flex;flex-direction:column;gap:12px;background:var(--sheet);border:1.5px solid var(--line);border-radius:6px;padding:14px;margin-top:6px}
+.gg-rows{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gg-rows .mono{display:block;font-size:1.125rem;margin-top:6px}
+mark.gm{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--accent)}
+.step.done mark.gm{box-shadow:none}
+.ggf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ggf label{display:flex;flex-direction:column;gap:4px;font-size:0.8125rem;color:var(--muted)}
+.ggp{display:contents}
+.ggf .sizehint{grid-column:1/-1}
+.ggf h3{grid-column:1/-1;font-size:1.05rem;color:var(--ink)}
+@media (min-width:640px){.ov{align-items:center;padding:24px}.dlg{border-radius:10px;border-bottom:1.5px solid var(--ink)}}
+@media (max-width:640px){html{font-size:14px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"><div class="loading">Lade Anleitungen</div></div>
+
+<div class="ov" id="imp" hidden role="dialog" aria-modal="true" aria-labelledby="impT">
+  <div class="dlg">
+    <h2 id="impT">Anleitung importieren</h2>
+    <p>Wähle die JSON-Datei, die du von Claude bekommen hast. Sie wird sofort angelegt.</p>
+    <label class="btn primary" for="file">Datei wählen</label>
+    <input type="file" id="file" accept=".json,application/json,text/plain" hidden>
+    <div class="or">oder Text einfügen</div>
+    <textarea id="paste" placeholder='{"titel": "…", "abschnitte": [ … ]}' spellcheck="false"></textarea>
+    <details class="spec"><summary>Anleitung mit einer anderen KI umwandeln?</summary>
+      <p>Kopiere diesen Text und gib ihn zusammen mit deiner Anleitung in den Chat. Die Antwort speicherst du als Datei mit der Endung .json oder fügst sie oben ein.</p>
+      <textarea id="spec" readonly rows="7"></textarea>
+      <button class="btn" id="specCopy" type="button">Text kopieren</button>
+    </details>
+    <div class="err" id="err" role="alert" hidden></div>
+    <div class="row">
+      <button class="btn ghost" id="impCancel" type="button">Abbrechen</button>
+      <button class="btn primary" id="impGo" type="button">Importieren</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="sz" hidden role="dialog" aria-modal="true" aria-label="Größen bearbeiten"></div>
+<div class="ov" id="code" hidden role="dialog" aria-modal="true" aria-labelledby="codeT">
+  <div class="dlg">
+    <h2 id="codeT">Zugangscode</h2>
+    <p>Gib den Code ein, den du bei Netlify festgelegt hast. Er wird auf diesem Gerät gemerkt.</p>
+    <input type="password" id="codeIn" autocomplete="current-password" aria-label="Zugangscode">
+    <div class="err" id="codeErr" role="alert" hidden></div>
+    <div class="row"><button class="btn primary" id="codeGo" type="button">Öffnen</button></div>
+  </div>
+</div>
+<div class="ov" id="tm" hidden role="dialog" aria-modal="true" aria-label="Erklärung"></div>
+<div class="ov" id="gg" hidden role="dialog" aria-modal="true" aria-label="Maschenprobe"></div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto"></div>
+<input type="file" id="photo" accept="image/*" multiple hidden>
+
+<script>
+(function(){
+'use strict';
+
+var RE=/\{(?:([MR])(?:\/(\d+))?(?:\+(\d+))?:([^{}]*)|=([^{}]*)|([^{}]*\|[^{}]*)|(@[^{}]*)|(#[^{}]*))\}/g;
+var CRAFT={haekeln:'Häkeln',stricken:'Stricken',naehen:'Nähen',sonstiges:'Handarbeit'};
+var LSKEY='anleitungslog.v1', SEEDKEY='anleitungslog.seeded';
+var app=document.getElementById('app');
+var lib={}, dirty={}, ver={}, timers={}, deleted={}, store=null, queue=Promise.resolve(), ready=false;
+var storeNote='',slow=false,route='', confirmDel=false, confirmReset=false;
+var photoList=[], watchId='', unwatch=null, photoMsg='', lbIndex=null, lbConfirm=false, sz=null, MAXPH=12;
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function str(x){return x==null?'':String(x).trim();}
+function arr(x){return Array.isArray(x)?x.map(String):[];}
+function lsGet(k){try{return window.localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}
+
+/* ---------- Größen-Platzhalter: {80|88|96} ---------- */
+function sizeIdx(d){var i=d.sizes.indexOf(d.size);return i<0?0:i;}
+function phInfo(a){return {type:a[1]||'',mul:a[2]?+a[2]:0,off:a[3]!=null?+a[3]:null,inner:a[4]!=null?a[4]:(a[5]!=null?a[5]:(a[6]!=null?a[6]:(a[7]!=null?a[7]:a[8]))),eq:a[5]!=null};}
+function num(x){var n=parseFloat(String(x==null?'':x).replace(',','.'));return n>0?n:null;}
+function fmtN(n){return String(Math.round(n*10)/10).replace('.',',');}
+function gf(d){
+  var g=d.gauge;if(!g||!g.use)return null;
+  var fm=g.om&&g.um?g.um/g.om:1,fr=g.or&&g.ur?g.ur/g.or:1;
+  if(Math.abs(fm-1)<1e-9&&Math.abs(fr-1)<1e-9)return null;
+  return {m:fm,r:fr};
+}
+function rnd(x,mul,off){
+  var r;
+  if(mul){var o=off||0;r=Math.round((x-o)/mul)*mul+o;while(r<1)r+=mul;}
+  else r=Math.max(1,Math.round(x));
+  return r;
+}
+/* ---------- Formeln: {#…}, {M:@Maß…}, Maße (masse) und eigene Formeln (formeln) ---------- */
+function isCalc(inner){var c=String(inner).charAt(0);return c==='@'||c==='#';}
+function tokenize(src){
+  var re=/\s*(?:(\d+(?:[.,]\d+)?)|(@?[\p{L}_][\p{L}\p{N}_]*)|([-+*\/(),]))/uy,out=[],m,pos=0;
+  src=String(src).trim();
+  while(pos<src.length){
+    re.lastIndex=pos;m=re.exec(src);
+    if(!m)return null;
+    pos=re.lastIndex;
+    if(m[1]!=null)out.push({t:'n',v:parseFloat(m[1].replace(',','.'))});
+    else if(m[2]!=null)out.push({t:m[2].charAt(0)==='@'?'d':'i',v:m[2].replace(/^@/,'')});
+    else out.push({t:'o',v:m[3]});
+  }
+  return out;
+}
+var FN={runden:'round',round:'round',aufrunden:'ceil',ceil:'ceil',abrunden:'floor',floor:'floor',min:'min',max:'max',abs:'abs',m:'m',r:'r'};
+function calc(src,d,cm,depth){
+  depth=depth||0;if(depth>8)return null;
+  var tk=tokenize(src);if(!tk||!tk.length)return null;
+  var pos=0,ug=false,bad=false,g=d.gauge||{};
+  var M10=cm?10:(g.use&&g.um?g.um:null),R10=cm?10:(g.use&&g.ur?g.ur:null);
+  function peek(){return tk[pos];}
+  function isO(v){var t=tk[pos];return t&&t.t==='o'&&t.v===v;}
+  function expr(){var v=term();while(isO('+')||isO('-')){var o=tk[pos++].v,w=term();v=o==='+'?v+w:v-w;}return v;}
+  function term(){var v=un();while(isO('*')||isO('/')){var o=tk[pos++].v,w=un();if(o==='*')v*=w;else{if(!w)bad=true;v=w?v/w:0;}}return v;}
+  function un(){if(isO('-')){pos++;return -un();}if(isO('+')){pos++;return un();}return prim();}
+  function prim(){
+    var t=tk[pos++];if(!t){bad=true;return 0;}
+    if(t.t==='n')return t.v;
+    if(t.t==='o'&&t.v==='('){var v=expr();if(isO(')'))pos++;else bad=true;return v;}
+    if(t.t==='d'){
+      var x=dimVal(t.v,d,cm,depth+1);
+      if(x==null){bad=true;return 0;}
+      if(x.ug)ug=true;return x.v;
+    }
+    if(t.t==='i'){
+      var nm=t.v,lo=nm.toLowerCase();
+      if(isO('(')){
+        pos++;var args=[];
+        if(!isO(')')){args.push(expr());while(isO(',')){pos++;args.push(expr());}}
+        if(isO(')'))pos++;else bad=true;
+        var f=FN[lo];
+        if(!f){bad=true;return 0;}
+        if(f==='m'||f==='r'){
+          ug=true;var base=f==='m'?M10:R10;
+          if(base==null){bad=true;return 0;}
+          return (args[0]||0)*base/10;
+        }
+        if(f==='round')return Math.round(args[0]||0);
+        if(f==='ceil')return Math.ceil(args[0]||0);
+        if(f==='floor')return Math.floor(args[0]||0);
+        if(f==='abs')return Math.abs(args[0]||0);
+        if(f==='min')return Math.min.apply(null,args);
+        if(f==='max')return Math.max.apply(null,args);
+      }
+      var u=nm.toUpperCase();
+      if(u==='S'||lo==='groesse'||lo==='größe')return sizeIdx(d)+1;
+      if(u==='M10'){ug=true;if(M10==null)bad=true;return M10||0;}
+      if(u==='R10'){ug=true;if(R10==null)bad=true;return R10||0;}
+      if(u==='OM'){if(!g.om)bad=true;return g.om||0;}
+      if(u==='OR'){if(!g.or)bad=true;return g.or||0;}
+      bad=true;return 0;
+    }
+    bad=true;return 0;
+  }
+  var v=expr();
+  if(bad||pos<tk.length||!isFinite(v))return null;
+  return {v:v,ug:ug};
+}
+function dimVal(name,d,cm,depth){
+  if(d.dims&&d.dims[name]){
+    var a=d.dims[name],n=parseFloat(String(a[Math.min(sizeIdx(d),a.length-1)]).replace(',','.'));
+    return isFinite(n)?{v:n,ug:false}:null;
+  }
+  if(d.formulas&&d.formulas[name])return calc(d.formulas[name],d,cm,depth);
+  return null;
+}
+function calcText(src,d,type,mul,off){
+  if(type)src=(type==='M'?'m(':'r(')+src+')';
+  var c=calc(src,d,true);
+  if(!c)return {text:'?',scaled:false};
+  if(!c.ug)return {text:mul?String(rnd(c.v,mul,off)):fmtN(c.v),scaled:false};
+  var real=calc(src,d,false);
+  if(!real)return {text:fmtN(c.v)+' cm',scaled:false};
+  return {text:rnd(real.v,mul,off)+' ('+fmtN(c.v)+' cm)',scaled:true};
+}
+function phVal(ph,d){
+  if(isCalc(ph.inner)){
+    var src=ph.inner,mul=ph.mul,off=ph.off;
+    if(src.charAt(0)==='#'){
+      src=src.slice(1);
+      var pm=/^\s*\/(\d+)(?:\+(\d+))?\s*:(.*)$/.exec(src);
+      if(pm){mul=+pm[1];off=pm[2]!=null?+pm[2]:null;src=pm[3];}
+      return calcText(src,d,'',mul,off);
+    }
+    if(!ph.type){var c0=calc(src,d,true);return {text:c0?fmtN(c0.v)+' cm':'?',scaled:false};}
+    return calcText(src,d,ph.type,mul,off);
+  }
+  var p=ph.inner.split('|').map(function(s){return s.trim();}),v=p[Math.min(sizeIdx(d),p.length-1)];
+  if(!ph.type)return {text:v,scaled:false};
+  var cm=/^([\d.,]+)\s*cm$/i.exec(v),g=d.gauge;
+  if(cm){
+    var mine=g&&g.use?(ph.type==='M'?g.um:g.ur):0;
+    if(!mine)return {text:cm[1]+' cm',scaled:false};
+    return {text:rnd(parseFloat(cm[1].replace(',','.'))*mine/10,ph.mul,ph.off)+' ('+cm[1]+' cm)',scaled:true};
+  }
+  var f=gf(d);if(!f)return {text:v,scaled:false};
+  var n=parseFloat(v.replace(',','.'));if(!isFinite(n))return {text:v,scaled:false};
+  return {text:String(rnd(n*(ph.type==='M'?f.m:f.r),ph.mul,ph.off)),scaled:true};
+}
+function plain(s,d){return String(s==null?'':s).replace(RE,function(){return phVal(phInfo(arguments),d).text;});}
+var tcFor=null,tc=null;
+function termsOf(d){
+  var hp=d.help;
+  if(!hp)return null;
+  if(tcFor===hp)return tc;
+  tcFor=hp;tc=null;
+  var map={},names=[];
+  function add(n,id){n=String(n).trim();if(n&&!map[n]){map[n]=id;names.push(n);}}
+  hp.abbr.forEach(function(a,i){add(a.k,'a'+i);});
+  hp.tech.forEach(function(t,i){add(t.title,'t'+i);(t.aliases||[]).forEach(function(n){add(n,'t'+i);});});
+  if(!names.length)return null;
+  names.sort(function(x,y){return y.length-x.length;});
+  var alt=names.map(function(n){return n.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|');
+  try{tc={map:map,re:new RegExp('(^|[^\\p{L}\\p{N}])('+alt+')(?![\\p{L}\\p{N}])','gu')};}catch(e){tc=null;}
+  return tc;
+}
+var URLRE=/https?:\/\/[^\s<>"')\]]+/g;
+function escL(s){
+  s=String(s==null?'':s);var out='',last=0,m;URLRE.lastIndex=0;
+  while((m=URLRE.exec(s))){out+=esc(s.slice(last,m.index))+'<a class="ext" href="'+esc(m[0])+'" target="_blank" rel="noopener noreferrer">'+esc(m[0].replace(/^https?:\/\/(www\.)?/,'').slice(0,40))+'</a>';last=m.index+m[0].length;}
+  return out+esc(s.slice(last));
+}
+function linkTerms(seg,d){
+  var out='',last=0,m;URLRE.lastIndex=0;seg=seg||'';
+  while((m=URLRE.exec(seg))){out+=linkTerms0(seg.slice(last,m.index),d)+escL(m[0]);last=m.index+m[0].length;}
+  return out+linkTerms0(seg.slice(last),d);
+}
+function linkTerms0(seg,d){
+  var t=termsOf(d);
+  if(!t||!seg)return esc(seg);
+  var out='',last=0,m;t.re.lastIndex=0;
+  while((m=t.re.exec(seg))){
+    var st=m.index+m[1].length;
+    out+=esc(seg.slice(last,st))+'<button class="term" data-act="term" data-k="'+t.map[m[2]]+'" type="button">'+esc(m[2])+'</button>';
+    last=st+m[2].length;
+    if(m[2].length===0)t.re.lastIndex++;
+  }
+  return out+esc(seg.slice(last));
+}
+function rich(s,d){
+  s=String(s==null?'':s);var out='',last=0,m;RE.lastIndex=0;
+  var marks=d.sizes.length>1;
+  while((m=RE.exec(s))){
+    out+=linkTerms(s.slice(last,m.index),d);
+    var pv=phVal(phInfo(m),d),v=esc(pv.text);
+    out+=pv.scaled?'<mark class="gm">'+v+'</mark>':(marks?'<mark>'+v+'</mark>':v);
+    last=m.index+m[0].length;
+  }
+  out+=linkTerms(s.slice(last),d);
+  return out.replace(/\n/g,'<br>');
+}
+function hasTag(d){return /\{[MR](?:\/\d+)?(?:\+\d+)?:/.test(JSON.stringify([d.sections,d.meta,d.materials]));}
+function vis(x,d){return !x.sizes||!x.sizes.length||!d.size||x.sizes.indexOf(d.size)>-1;}
+function target(s,d){if(!s.counter)return 0;var n=parseInt(plain(s.counter.target,d),10);return n>0?n:0;}
+
+/* ---------- Import: Datei prüfen und normalisieren ---------- */
+function pk(o,keys){
+  if(!o||typeof o!=='object')return undefined;
+  for(var i=0;i<keys.length;i++){if(o[keys[i]]!=null)return o[keys[i]];}
+  return undefined;
+}
+var K_SEC=['abschnitte','sections','teile','parts','kapitel'],K_STEPS=['schritte','steps','anweisungen','instructions','reihen','rows'];
+function canonStep(s){
+  if(typeof s==='string'||typeof s==='number')return String(s);
+  if(!s||typeof s!=='object')return '';
+  var z=pk(s,['zaehler','zähler','counter','wiederholungen']);
+  if(typeof z==='number'||typeof z==='string')z={ziel:z};
+  if(z&&typeof z==='object')z={ziel:pk(z,['ziel','target','anzahl','count']),einheit:pk(z,['einheit','unit','label'])};else z=null;
+  return {label:pk(s,['label','reihe','runde','nr','nummer']),text:pk(s,['text','anweisung','beschreibung','instruction','description','schritt']),
+    hinweis:pk(s,['hinweis','notiz','note','tipp']),info:pk(s,['info','nur_info']),groessen:pk(s,['groessen','größen','sizes']),zaehler:z};
+}
+function canonText(x){
+  if(typeof x==='string'||typeof x==='number')return String(x);
+  if(x&&typeof x==='object'){var n=pk(x,['text','name','material','beschreibung']),m=pk(x,['menge','amount','anzahl']);return [m,n].filter(function(v){return v!=null;}).join(' ');}
+  return '';
+}
+function canon(j){
+  if(Array.isArray(j))j={abschnitte:j};
+  if(j&&typeof j==='object'&&pk(j,K_SEC.concat(K_STEPS))===undefined){
+    var ks=Object.keys(j).filter(function(k){return j[k]&&typeof j[k]==='object'&&!Array.isArray(j[k]);});
+    if(ks.length===1)j=j[ks[0]];
+  }
+  if(!j||typeof j!=='object'||Array.isArray(j))throw new Error('Die Datei enthält keine Anleitung im erwarteten Format.');
+  var secs=pk(j,K_SEC);
+  if(secs===undefined){var flat=pk(j,K_STEPS);if(Array.isArray(flat))secs=[{titel:'Anleitung',schritte:flat}];}
+  if(!Array.isArray(secs)||!secs.length)throw new Error('Es fehlen „abschnitte“ mit „schritte“. Gefundene Felder: '+Object.keys(j).join(', ')+'.');
+  var mp=pk(j,['maschenprobe','gauge']),eh=pk(j,['erklaerung','erklärung','glossar']),mat=pk(j,['material','materialien','materials','materialliste']);
+  var out={
+    masse:pk(j,['masse','maße','dims','measurements']),formeln:pk(j,['formeln','formulas']),
+    fotos:pk(j,['fotos','bilder','photos','images']),
+    titel:pk(j,['titel','title','name','bezeichnung']),technik:pk(j,['technik','craft','type','art']),
+    groessen:pk(j,['groessen','größen','sizes']),meta:pk(j,['meta','angaben','details']),
+    material:Array.isArray(mat)?mat.map(canonText):undefined,
+    maschenprobe:mp&&typeof mp==='object'?{maschen:pk(mp,['maschen','stitches','m']),reihen:pk(mp,['reihen','rows','r'])}:undefined,
+    abschnitte:secs.map(function(a){
+      if(Array.isArray(a))a={schritte:a};
+      if(!a||typeof a!=='object')return {titel:String(a||''),schritte:[]};
+      var st=pk(a,K_STEPS);
+      return {titel:pk(a,['titel','title','name','abschnitt']),hinweis:pk(a,['hinweis','notiz','note','beschreibung','description']),
+        groessen:pk(a,['groessen','größen','sizes']),schritte:Array.isArray(st)?st.map(canonStep):[]};
+    })
+  };
+  if(eh&&typeof eh==='object'){
+    var ab=pk(eh,['abkuerzungen','abkürzungen','abbreviations','glossar']),te=pk(eh,['techniken','techniques']);
+    if(ab&&typeof ab==='object'&&!Array.isArray(ab))ab=Object.keys(ab).map(function(k){return {kurz:k,text:ab[k]};});
+    out.erklaerung={
+      abkuerzungen:(Array.isArray(ab)?ab:[]).map(function(a){return {kurz:pk(a,['kurz','abkuerzung','abbr','begriff','term']),text:pk(a,['text','bedeutung','erklaerung','meaning'])};}),
+      techniken:(Array.isArray(te)?te:[]).map(function(t){return {titel:pk(t,['titel','name','title']),text:pk(t,['text','beschreibung','description']),schritte:pk(t,['schritte','steps']),begriffe:pk(t,['begriffe','aliases'])};})
+    };
+  }
+  return out;
+}
+function dimsOf(m,sizes){
+  var out={};
+  if(m&&typeof m==='object'&&!Array.isArray(m))Object.keys(m).forEach(function(k){
+    var v=m[k];v=Array.isArray(v)?v:[v];
+    var a=v.map(function(x){var n=parseFloat(String(x).replace(',','.'));return isFinite(n)?String(n).replace('.',','):'';});
+    var n=Math.max(sizes.length,1);while(a.length<n)a.push(a[a.length-1]);
+    if(/^[\p{L}\p{N}_]+$/u.test(k))out[k]=a.slice(0,n);
+  });
+  return out;
+}
+function formulasOf(f){
+  var out={};
+  if(f&&typeof f==='object'&&!Array.isArray(f))Object.keys(f).forEach(function(k){if(/^[\p{L}\p{N}_]+$/u.test(k)&&typeof f[k]==='string')out[k]=f[k];});
+  return out;
+}
+function norm(j){
+  j=canon(j);
+  var title=str(j.titel)||'Neue Anleitung';
+  var craft=str(j.technik).toLowerCase();
+  if(!CRAFT[craft])craft='sonstiges';
+  var sizes=arr(j.groessen);
+  var meta=[];
+  if(j.meta&&typeof j.meta==='object'){Object.keys(j.meta).forEach(function(k){meta.push({k:k,v:str(j.meta[k])});});}
+  var sections=j.abschnitte.map(function(a,si){
+    var steps=a&&Array.isArray(a.schritte)?a.schritte:[];
+    if(!steps.length)throw new Error('Abschnitt '+(si+1)+' hat keine „schritte“.');
+    return {
+      title:str(a.titel)||('Abschnitt '+(si+1)), note:str(a.hinweis), sizes:arr(a.groessen),
+      steps:steps.map(function(s){
+        if(typeof s==='string')s={text:s};
+        var z=s.zaehler&&typeof s.zaehler==='object'?{target:str(s.zaehler.ziel),unit:str(s.zaehler.einheit)||'Wiederholungen'}:null;
+        return {label:str(s.label),text:str(s.text),note:str(s.hinweis),info:!!s.info,sizes:arr(s.groessen),counter:z};
+      })
+    };
+  });
+  var help={abbr:[],tech:[]},eh=j.erklaerung;
+  if(eh&&typeof eh==='object'){
+    (Array.isArray(eh.abkuerzungen)?eh.abkuerzungen:[]).forEach(function(a){if(a&&str(a.kurz)&&str(a.text))help.abbr.push({k:str(a.kurz),t:str(a.text)});});
+    (Array.isArray(eh.techniken)?eh.techniken:[]).forEach(function(t){if(t&&str(t.titel))help.tech.push({title:str(t.titel),text:str(t.text),steps:arr(t.schritte),aliases:arr(t.begriffe)});});
+  }
+  var mp=j.maschenprobe,g={om:null,or:null,um:null,ur:null,use:true};
+  if(mp&&typeof mp==='object'){g.om=num(mp.maschen);g.or=num(mp.reihen);}
+  var now=Date.now();
+  return {
+    dims:dimsOf(j.masse,sizes),formulas:formulasOf(j.formeln),gauge:g,help:help,title:title,craft:craft,sizes:sizes,size:sizes[0]||'',meta:meta,
+    materials:Array.isArray(j.material)?j.material.map(str).filter(Boolean):[],
+    _photos:(Array.isArray(j.fotos)?j.fotos:[]).map(function(f){if(typeof f==='string')f={bild:f};return f&&typeof f==='object'?{src:str(pk(f,['bild','data','src','image','url'])),cap:str(pk(f,['beschriftung','caption','text','titel']))}:null;}).filter(function(f){return f&&/^data:image\//.test(f.src);}).slice(0,MAXPH),
+    sections:sections,done:{},counts:{},mats:{},folded:{},created:now,updated:now
+  };
+}
+function parseText(text){
+  text=String(text||'').replace(/^﻿/,'').trim().replace(/^```(?:json)?\s*/i,'').replace(/```\s*$/,'').trim();
+  if(!text)throw new Error('Bitte wähle eine Datei oder füge den Text ein.');
+  var j;
+  try{j=JSON.parse(text);}catch(e){throw new Error('Das ist kein gültiges JSON. Bitte die Datei unverändert verwenden.');}
+  return norm(j);
+}
+function newId(){return 'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);}
+
+/* ---------- Beispiel ---------- */
+function example(){
+  var d=norm({
+    titel:'Beispiel: Rippenmütze', technik:'stricken', groessen:['Kind','S','M','L'],
+    maschenprobe:{maschen:22,reihen:30},
+    erklaerung:{
+      abkuerzungen:[{kurz:'M',text:'Masche(n)'},{kurz:'re',text:'rechts, also eine rechte Masche stricken'},{kurz:'li',text:'links, also eine linke Masche stricken'},{kurz:'Rd',text:'Runde, einmal rund um die Mütze'}],
+      techniken:[
+        {titel:'Rippenmuster',begriffe:['Rippenmuster'],text:'Rechte und linke Maschen wechseln sich ab. Das Strickstück wird dadurch sehr elastisch.',schritte:['2 M re stricken.','2 M li stricken.','Diese 4 Maschen bis zum Rundenende wiederholen.']},
+        {titel:'Maschen zusammenstricken',begriffe:['zusammenstricken'],text:'So nimmst du Maschen ab.',schritte:['Mit der rechten Nadel von links in 2 Maschen einstechen.','Beide Maschen wie eine rechte Masche stricken.']},
+        {titel:'Faden durchziehen',begriffe:['durchziehen'],text:'Zum Abschluss der Krone.',schritte:['Faden abschneiden, etwa 20 cm Rest lassen.','Mit der Stopfnadel durch alle restlichen Maschen ziehen.','Fest zusammenziehen und auf der Innenseite vernähen.']}
+      ]
+    },
+    meta:{Kopfumfang:'{48–50|52–54|55–57|58–60} cm',Garn:'Wolle, Lauflänge 100 m / 50 g',Nadeln:'Nadelspiel und Rundstricknadel 4 mm'},
+    material:['Wolle: {100|150|150|200} g','Nadelspiel 4 mm','Rundstricknadel 4 mm, 40 cm','8 Maschenmarkierer','Stopfnadel'],
+    abschnitte:[
+      {titel:'Bündchen',schritte:[
+        {label:'Start',text:'{M/8:88|96|104|112} Maschen anschlagen und zur Runde schließen, Rundenanfang markieren.'},
+        {label:'Runde 1',text:'Im Rippenmuster stricken: 2 M re, 2 M li im Wechsel.',zaehler:{ziel:'{R:10|12|14|14}',einheit:'Runden'}},
+        {info:true,text:'Das Bündchen soll am Ende etwa {3|4|4|5} cm hoch sein.'}
+      ]},
+      {titel:'Mützenkörper',schritte:[
+        {text:'Alle M re stricken.',hinweis:'Maschenprobe vorher kontrollieren.',zaehler:{ziel:'{R:26|30|34|36}',einheit:'Runden'}},
+        {text:'Die Maschen mit 8 Markierern in gleich große Segmente teilen: je {M:11|12|13|14} Maschen.'}
+      ]},
+      {titel:'Krone',schritte:[
+        {label:'Abnahme',text:'In jedem Segment die letzten 2 M re zusammenstricken, danach 1 Rd ohne Abnahmen.',zaehler:{ziel:'{M:10|11|12|13}',einheit:'Abnahmerunden'}},
+        {text:'Die restlichen 8 M mit dem Faden durchziehen und fest zusammenziehen.'},
+        {text:'Fäden vernähen und die Mütze leicht spannen.'}
+      ]}
+    ]
+  });
+  return d;
+}
+
+/* ---------- Speicher ---------- */
+function sig(o){return Object.keys(o).sort().map(function(k){return k+':'+(o[k].updated||0);}).join('|');}
+function strip(d){var o={};Object.keys(d).forEach(function(k){if(k!=='id')o[k]=d[k];});return o;}
+function lsSave(){lsSet(LSKEY,JSON.stringify(lib));}
+function touch(id,now){
+  var d=lib[id];if(!d)return;
+  d.updated=Date.now();dirty[id]=true;ver[id]=(ver[id]||0)+1;
+  clearTimeout(timers[id]);
+  if(!store||store.mode==='local'){lsSave();delete dirty[id];return;}
+  if(now)flush(id);else timers[id]=setTimeout(function(){flush(id);},600);
+}
+function flush(id){
+  clearTimeout(timers[id]);
+  if(!store||store.mode!=='db'||!dirty[id]||!lib[id])return;
+  var v=ver[id],body=strip(lib[id]);
+  queue=queue.then(function(){return store.col.doc(id).set(body);}).then(function(){if(ver[id]===v)delete dirty[id];}).catch(function(){});
+}
+function flushAll(){Object.keys(dirty).forEach(flush);}
+function removeDoc(id){
+  delete lib[id];delete dirty[id];deleted[id]=true;clearTimeout(timers[id]);delAllPhotos(id);
+  if(store&&store.mode==='db'){queue=queue.then(function(){return store.col.doc(id).delete();}).catch(function(){});}
+  else lsSave();
+}
+function seedIfNeeded(){
+  if(Object.keys(lib).length||lsGet(SEEDKEY))return false;
+  var d=example(),id=newId();lib[id]=d;lsSet(SEEDKEY,'1');touch(id,true);return true;
+}
+function migrate(d){
+  var ch=false;
+  if(!d.gauge){
+    if(d.title==='Beispiel: Rippenmütze'){var e=example();d.sections=e.sections;d.meta=e.meta;d.materials=e.materials;d.gauge=e.gauge;}
+    else d.gauge={om:null,or:null,um:null,ur:null,use:true};
+    ch=true;
+  }
+  if(!d.help){
+    if(d.title==='Beispiel: Rippenmütze'){var x=example();d.sections=x.sections;d.meta=x.meta;d.materials=x.materials;d.help=x.help;}
+    else d.help={abbr:[],tech:[]};
+    ch=true;
+  }
+  return ch;
+}
+function startLocal(){
+  store={mode:'local'};
+  try{var raw=lsGet(LSKEY);lib=raw?JSON.parse(raw)||{}:{};}catch(e){lib={};}
+  Object.keys(lib).forEach(function(id){lib[id].id=id;if(migrate(lib[id]))touch(id);});
+  ready=true;seedIfNeeded();render();
+}
+function connect(col,onErr){
+  store={mode:'db',col:col};
+  col.onSnapshot(function(snap){
+      var next={},was=ready,before=sig(lib);
+      snap.docs.forEach(function(s){var v=s.data();if(v&&!deleted[s.id]){v=JSON.parse(JSON.stringify(v));v.id=s.id;next[s.id]=v;}});
+      Object.keys(lib).forEach(function(id){
+        var l=lib[id];if(!l||deleted[id])return;
+        var recent=Date.now()-(l.updated||0)<15000;
+        if(dirty[id]||(next[id]?(l.updated||0)>(next[id].updated||0):recent))next[id]=l;
+      });
+      Object.keys(next).forEach(function(id){try{if(!dirty[id]&&migrate(next[id])){lib[id]=next[id];touch(id,true);}}catch(e){}});
+      lib=next;ready=true;
+      if(snap.empty&&!snap.metadata.fromCache)seedIfNeeded();
+      if(!was||sig(lib)!==before)render();
+  },onErr);
+}
+setTimeout(function(){if(!ready){slow=true;try{render();}catch(e){}}},8000);
+function initStore(){
+  var c=window.claude;
+  if(!c||!c.use){apiConnect(lsGet(CODEKEY)||'');return;}
+  Promise.all([c.use('db'),c.use('user')]).then(function(r){
+    var db=r[0],user=r[1];
+    if(!db||!user)return null;
+    return Promise.resolve(user.id()).then(function(uid){return uid?{db:db,uid:uid}:null;});
+  }).then(function(r){
+    if(!r){startLocal();return;}
+    connect(r.db.collection('data/users/'+r.uid),function(){startLocal();});
+  }).catch(function(){startLocal();});
+}
+
+/* ---------- Online-Speicher über Netlify (nur außerhalb von claude.ai) ---------- */
+var CODEKEY='anleitungslog.code';
+var codeEl=document.getElementById('code'),codeIn=document.getElementById('codeIn'),codeErr=document.getElementById('codeErr');
+function showCode(msg){codeErr.textContent=msg||'';codeErr.hidden=!msg;codeEl.hidden=false;setTimeout(function(){codeIn.focus();},50);}
+function hideCode(){codeEl.hidden=true;codeIn.value='';}
+function apiShim(code){
+  function call(method,path,body){
+    var ac=window.AbortController?new AbortController():null,tm=ac?setTimeout(function(){ac.abort();},25000):0;
+    return fetch('/api'+path,{method:method,headers:{'x-code':code,'content-type':'application/json'},body:body?JSON.stringify(body):undefined,signal:ac?ac.signal:undefined}).then(function(r){clearTimeout(tm);
+      return r.json().catch(function(){return {};}).then(function(j){
+        if(r.status===401){var e=new Error('auth');e.code='auth';throw e;}
+        if(!r.ok){var e2=new Error(j.error||('http '+r.status));e2.status=r.status;throw e2;}
+        return j;
+      });
+    });
+  }
+  function snapOf(list){return {docs:list.map(function(x){return {id:x.id,data:function(){return x.data;}};}),empty:!list.length,metadata:{fromCache:false}};}
+  var pw={};
+  function photoCol(pid){
+    var pc={
+      orderBy:function(){return pc;},
+      get:function(){return call('GET','/photos/'+pid).then(snapOf);},
+      onSnapshot:function(cb){
+        var f=function(){call('GET','/photos/'+pid).then(function(l){cb(snapOf(l));}).catch(function(){});};
+        pw[pid]=f;f();
+        return function(){if(pw[pid]===f)delete pw[pid];};
+      },
+      doc:function(fid){return {
+        set:function(b){return call('PUT','/photos/'+pid+'/'+fid,b).then(function(){if(pw[pid])pw[pid]();});},
+        delete:function(){return call('DELETE','/photos/'+pid+'/'+fid).then(function(){if(pw[pid])pw[pid]();});}
+      };}
+    };
+    return pc;
+  }
+  var col={
+    onSnapshot:function(cb,err){
+      var alive=true,t=null;
+      function tick(){
+        if(!alive)return;
+        if(document.hidden){t=setTimeout(tick,5000);return;}
+        call('GET','/docs').then(function(l){if(alive)cb(snapOf(l));}).catch(function(e){if(alive&&e&&e.code==='auth'&&err)err(e);}).then(function(){if(alive)t=setTimeout(tick,45000);});
+      }
+      tick();
+      return function(){alive=false;clearTimeout(t);};
+    },
+    doc:function(id){return {
+      set:function(b){return call('PUT','/docs/'+id,b);},
+      delete:function(){return call('DELETE','/docs/'+id);},
+      collection:function(){return photoCol(id);}
+    };}
+  };
+  return {col:col,list:function(){return call('GET','/docs');}};
+}
+function apiConnect(code){
+  var api=apiShim(code);
+  api.list().then(function(){
+    lsSet(CODEKEY,code);hideCode();
+    connect(api.col,function(e){if(e&&e.code==='auth'){lsSet(CODEKEY,'');ready=false;render();showCode('Der Code gilt nicht mehr.');}});
+  },function(e){
+    if(e&&e.code==='auth'){lsSet(CODEKEY,'');showCode(code?'Der Code ist falsch.':'');return;}
+    if(e&&e.status===500){showCode(e.message);return;}
+    storeNote='Der Server ist nicht erreichbar'+(e&&e.status?' (Fehler '+e.status+')':'')+'. Deine Anleitungen werden nur auf diesem Gerät gespeichert und erscheinen nicht auf anderen Geräten.';
+    startLocal();
+  });
+}
+function submitCode(){var c=codeIn.value.trim();if(c)apiConnect(c);}
+document.getElementById('codeGo').addEventListener('click',submitCode);
+codeIn.addEventListener('keydown',function(ev){if(ev.key==='Enter')submitCode();});
+document.addEventListener('visibilitychange',function(){if(document.hidden)flushAll();});
+window.addEventListener('pagehide',flushAll);
+
+/* ---------- Fortschritt ---------- */
+function secStats(d,si){
+  var s=d.sections[si],t=0,n=0;
+  s.steps.forEach(function(st,ti){if(st.info||!vis(st,d))return;t++;if(d.done[si+'_'+ti])n++;});
+  return {t:t,n:n};
+}
+function stats(d){
+  var t=0,n=0;
+  d.sections.forEach(function(s,si){if(!vis(s,d))return;var x=secStats(d,si);t+=x.t;n+=x.n;});
+  d.materials.forEach(function(m,i){t++;if(d.mats[i])n++;});
+  return {t:t,n:n,pct:t?Math.round(n/t*100):0};
+}
+
+/* ---------- Ansicht ---------- */
+var TICK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5"/></svg>';
+var CHEV='<svg class="chev" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>';
+
+function renderLibrary(){
+  var ids=Object.keys(lib).sort(function(a,b){return (lib[b].updated||0)-(lib[a].updated||0);});
+  var h='<div class="lib-head"><span class="eyebrow">Meine Anleitungen</span><h1>Maschinchen</h1>'+
+    '<p>Importiere eine Anleitung, wähle deine Größe und hake Schritt für Schritt ab.</p>'+
+    '<div class="row"><button class="btn primary" data-act="import" type="button">Anleitung importieren</button></div></div>';
+  if(storeNote&&store&&store.mode==='local')h+='<div class="err" role="alert">'+esc(storeNote)+'<div class="row" style="margin-top:10px"><button class="btn" data-act="reconnect" type="button">Erneut verbinden</button></div></div>';
+  if(!ids.length){
+    h+='<div class="empty"><h2>Noch keine Anleitung</h2><p>Importiere eine JSON-Datei oder sieh dir zuerst das Beispiel an.</p>'+
+      '<button class="btn" data-act="example" type="button">Beispiel laden</button></div>';
+  }else{
+    h+='<ul class="cards">'+ids.map(function(id){
+      var d=lib[id],s=stats(d);
+      return '<li><button class="card" data-act="open" data-id="'+esc(id)+'" type="button">'+
+        (d.cover?'<img class="cover" src="'+esc(d.cover)+'" alt="">':'')+'<div class="card-main">'+
+        '<div class="card-top"><span class="eyebrow">'+esc(CRAFT[d.craft]||'Handarbeit')+'</span>'+
+        (d.sizes.length>1?'<span class="chip">Größe '+esc(d.size)+'</span>':'')+'</div>'+
+        '<h2>'+esc(d.title)+'</h2>'+
+        '<div class="meter"><div class="track"><i class="'+(s.pct===100?'full':'')+'" style="width:'+s.pct+'%"></i></div>'+
+        '<span class="mono">'+s.n+' / '+s.t+'</span></div></div></button></li>';
+    }).join('')+'</ul>';
+    h+='<div class="row" style="margin-top:16px"><button class="btn ghost" data-act="example" type="button">Beispiel hinzufügen</button></div>';
+  }
+  app.innerHTML=h;
+}
+
+function stepHtml(d,si,ti,s){
+  var id=si+'_'+ti;
+  if(s.info)return '<li class="info"><span class="eyebrow">Hinweis</span><div>'+rich(s.text,d)+'</div></li>';
+  var done=!!d.done[id],t=target(s,d),n=d.counts[id]|0;
+  var h='<li class="step'+(done?' done':'')+'" data-act="step" data-id="'+id+'">'+
+    '<button class="chk" data-act="step" data-id="'+id+'" role="checkbox" aria-checked="'+done+'" aria-label="Schritt abhaken" type="button"><span class="box'+(done?' on':'')+'">'+TICK+'</span></button>'+
+    '<div class="body">'+(s.label?'<span class="lbl">'+esc(s.label)+'</span><br>':'')+'<span class="txt">'+rich(s.text,d)+'</span>';
+  if(s.note)h+='<span class="note">'+rich(s.note,d)+'</span>';
+  if(t){
+    h+='<div class="ctr"><button data-act="dec" data-id="'+id+'" aria-label="Eine weniger" type="button">−</button>'+
+      '<span class="num"><b>'+n+'</b> / '+t+'</span>'+
+      '<button class="plus" data-act="inc" data-id="'+id+'" aria-label="Eine mehr" type="button">+</button>'+
+      '<span class="unit">'+esc(s.counter.unit)+'</span></div>';
+  }
+  return h+'</div></li>';
+}
+
+function gaugeHtml(d){
+  var g=d.gauge||{om:null,or:null,um:null,ur:null,use:true};
+  function f(m,r){return (m?fmtN(m):'–')+' M · '+(r?fmtN(r):'–')+' R';}
+  var mine=g.um||g.ur,fac=gf(d);
+  var h='<section class="gauge"><span class="eyebrow">Maschenprobe auf 10 × 10 cm</span><div class="gg-rows">'+
+    '<div><span class="eyebrow">Anleitung</span><span class="mono">'+f(g.om,g.or)+'</span></div>'+
+    '<div><span class="eyebrow">Meine</span><span class="mono">'+(mine?f(g.um,g.ur):'nicht eingegeben')+'</span></div></div>';
+  if(mine){
+    h+='<div class="sizes" role="radiogroup" aria-label="Maschenprobe wählen" style="padding:0">'+
+      '<button class="size" role="radio" aria-checked="'+(g.use?'true':'false')+'" data-act="gg-use" data-v="1" type="button" style="font-family:var(--f-body)">Meine anwenden</button>'+
+      '<button class="size" role="radio" aria-checked="'+(g.use?'false':'true')+'" data-act="gg-use" data-v="0" type="button" style="font-family:var(--f-body)">Original zeigen</button></div>';
+  }
+  if(mine&&g.use&&/\{(?:[MR](?:\/\d+)?(?:\+\d+)?:[^{}]*(?:cm|@)|#)/i.test(JSON.stringify(d.sections)))h+='<p class="sizehint">Zahlen mit blauem Rahmen, die in der Anleitung als Maß (cm) stehen, sind mit deiner Maschenprobe berechnet.</p>';
+  if(fac)h+='<p class="sizehint">Zahlen mit blauem Rahmen sind umgerechnet: Maschen ×'+fac.m.toFixed(2).replace('.',',')+', Reihen ×'+fac.r.toFixed(2).replace('.',',')+'.</p>';
+  h+='<div class="row"><button class="btn" data-act="gg-edit" type="button">'+(mine?'Maschenprobe ändern':'Meine Maschenprobe eingeben')+'</button></div></section>';
+  return h;
+}
+function helpHtml(d){
+  var hp=d.help;
+  if(!hp||(!hp.abbr.length&&!hp.tech.length))return '';
+  var open=!d.folded.help,n=hp.abbr.length+hp.tech.length;
+  var h='<section class="sheet'+(open?' open':'')+'"><div class="sh"><button class="st" data-act="fold" data-si="help" aria-expanded="'+open+'" type="button" style="padding-left:16px"><span class="stitle">Erklärung</span><span class="cnt">'+n+(n===1?' Begriff':' Begriffe')+'</span>'+CHEV+'</button></div>';
+  if(open){
+    h+='<div class="help">';
+    if(hp.abbr.length)h+='<h3 class="eyebrow">Abkürzungen</h3><dl class="abbr">'+hp.abbr.map(function(a){return '<dt>'+esc(a.k)+'</dt><dd>'+esc(a.t)+'</dd>';}).join('')+'</dl>';
+    if(hp.tech.length)h+='<h3 class="eyebrow">Techniken</h3>'+hp.tech.map(function(t){
+      return '<div class="tech"><h4>'+esc(t.title)+'</h4>'+(t.text?'<p>'+escL(t.text)+'</p>':'')+(t.steps.length?'<ol>'+t.steps.map(function(x){return '<li>'+escL(x)+'</li>';}).join('')+'</ol>':'')+'</div>';
+    }).join('');
+    h+='</div>';
+  }
+  return h+'</section>';
+}
+function renderPattern(d){
+  var s=stats(d);
+  var h='<div class="bar"><div class="bar-in"><button class="back" data-act="back" type="button">‹ Alle Anleitungen</button><span class="pct">'+s.pct+' %</span></div>';
+  if(d.sizes.length>1){
+    h+='<div class="sizes" role="radiogroup" aria-label="Größe"><span class="eyebrow">Größe</span>'+
+      d.sizes.map(function(z){return '<button class="size" role="radio" aria-checked="'+(z===d.size)+'" data-act="size" data-size="'+esc(z)+'" type="button">'+esc(z)+'</button>';}).join('')+'<button class="size edit" data-act="sz-edit" type="button">Bearbeiten</button></div>';
+  }
+  h+='<div class="track"><i class="'+(s.pct===100?'full':'')+'" style="width:'+s.pct+'%"></i></div></div>';
+
+  h+='<div class="p-head"><span class="eyebrow">'+esc(CRAFT[d.craft]||'Handarbeit')+'</span><h1>'+esc(d.title)+'</h1>';
+  if(s.pct===100)h+='<span class="done-flag">Fertig</span>';
+  if(d.sizes.length>1)h+='<p class="sizehint">Markierte Zahlen gelten für Größe '+esc(d.size)+'.</p>';
+  else h+='<button class="btn ghost" data-act="sz-edit" type="button" style="align-self:flex-start">'+(d.sizes.length?'Größen bearbeiten':'Größen anlegen')+'</button>';
+  if(d.meta.length)h+='<dl class="meta">'+d.meta.map(function(m){return '<dt>'+esc(m.k)+'</dt><dd>'+rich(m.v,d)+'</dd>';}).join('')+'</dl>';
+  h+=gaugeHtml(d)+'</div>';
+  h+=photosHtml(d);
+  h+=helpHtml(d);
+
+  if(d.materials.length){
+    var mn=d.materials.filter(function(m,i){return d.mats[i];}).length;
+    var mo=!d.folded.mat;
+    h+='<section class="sheet'+(mo?' open':'')+'"><div class="sh"><button class="st" data-act="fold" data-si="mat" aria-expanded="'+mo+'" type="button" style="padding-left:16px">'+
+      '<span class="stitle">Material</span><span class="cnt">'+mn+'/'+d.materials.length+'</span>'+CHEV+'</button></div>';
+    if(mo)h+='<ul class="mats">'+d.materials.map(function(m,i){
+      var dn=!!d.mats[i];
+      return '<li class="mat'+(dn?' done':'')+'" data-act="mat" data-id="'+i+'"><button class="chk" data-act="mat" data-id="'+i+'" role="checkbox" aria-checked="'+dn+'" aria-label="Material abhaken" type="button"><span class="box'+(dn?' on':'')+'">'+TICK+'</span></button><div class="body">'+rich(m,d)+'</div></li>';
+    }).join('')+'</ul>';
+    h+='</section>';
+  }
+
+  d.sections.forEach(function(sec,si){
+    if(!vis(sec,d))return;
+    var x=secStats(d,si),open=!d.folded[si];
+    var st=x.t&&x.n===x.t?'on':(x.n?'part':'');
+    h+='<section class="sheet'+(open?' open':'')+'"><div class="sh">'+
+      '<button class="chk" data-act="secchk" data-si="'+si+'" role="checkbox" aria-checked="'+(st==='on'?'true':(st==='part'?'mixed':'false'))+'" aria-label="Ganzen Abschnitt abhaken" type="button"><span class="box '+st+'">'+TICK+'</span></button>'+
+      '<button class="st" data-act="fold" data-si="'+si+'" aria-expanded="'+open+'" type="button"><span class="stitle">'+esc(plain(sec.title,d))+'</span><span class="cnt">'+x.n+'/'+x.t+'</span>'+CHEV+'</button></div>';
+    if(open){
+      if(sec.note)h+='<p class="sec-note">'+rich(sec.note,d)+'</p>';
+      h+='<ol class="steps">';
+      sec.steps.forEach(function(stp,ti){if(vis(stp,d))h+=stepHtml(d,si,ti,stp);});
+      h+='</ol>';
+    }
+    h+='</section>';
+  });
+
+  h+='<div class="foot">';
+  if(confirmReset){
+    h+='<span class="q">Alle Häkchen und Zähler zurücksetzen?</span><div class="row"><button class="btn danger" data-act="reset-yes" type="button">Ja, zurücksetzen</button><button class="btn ghost" data-act="cancel" type="button">Abbrechen</button></div>';
+  }else if(confirmDel){
+    h+='<span class="q">Diese Anleitung samt Fortschritt löschen?</span><div class="row"><button class="btn danger" data-act="del-yes" type="button">Ja, löschen</button><button class="btn ghost" data-act="cancel" type="button">Abbrechen</button></div>';
+  }else{
+    h+='<div class="row"><button class="btn ghost" data-act="reset" type="button">Fortschritt zurücksetzen</button><button class="btn ghost" data-act="del" type="button">Anleitung löschen</button></div>';
+  }
+  h+='</div>';
+  app.innerHTML=h;
+}
+
+function render(){
+  if(!ready){app.innerHTML='<div class="loading">Lade Anleitungen</div>'+(slow?'<div class="loading"><p>Das dauert ungewöhnlich lange.</p><button class="btn" onclick="location.reload()" type="button">Neu laden</button></div>':'');return;}
+  if(route&&!lib[route])route='';
+  syncWatch();
+  if(route)renderPattern(lib[route]);else renderLibrary();
+  renderLb();
+}
+function go(id){route=id||'';confirmDel=false;confirmReset=false;lbIndex=null;lbConfirm=false;render();window.scrollTo(0,0);}
+
+/* ---------- Aktionen ---------- */
+function setStep(d,id,on){
+  var si=+id.split('_')[0],ti=+id.split('_')[1],s=d.sections[si].steps[ti],t=target(s,d);
+  if(on){d.done[id]=true;if(t)d.counts[id]=t;}
+  else{delete d.done[id];if(t)delete d.counts[id];}
+}
+function onAct(act,el){
+  var d=route?lib[route]:null,id=el.getAttribute('data-id');
+  switch(act){
+    case 'import':openImport();return;
+    case 'example':var e=example(),nid=newId();lib[nid]=e;touch(nid,true);go(nid);return;
+    case 'open':go(id);return;
+    case 'back':go('');return;
+    case 'cancel':confirmDel=false;confirmReset=false;render();return;
+    case 'reset':confirmReset=true;confirmDel=false;render();return;
+    case 'del':confirmDel=true;confirmReset=false;render();return;
+    case 'del-yes':var rid=route;route='';confirmDel=false;removeDoc(rid);render();window.scrollTo(0,0);return;
+  }
+  if(!d)return;
+  switch(act){
+    case 'size':d.size=el.getAttribute('data-size');break;
+    case 'step':setStep(d,id,!d.done[id]);break;
+    case 'mat':if(d.mats[id])delete d.mats[id];else d.mats[id]=true;break;
+    case 'inc':
+    case 'dec':
+      var si=+id.split('_')[0],ti=+id.split('_')[1],t=target(d.sections[si].steps[ti],d);
+      var n=(d.counts[id]|0)+(act==='inc'?1:-1);
+      n=Math.max(0,Math.min(t,n));
+      if(n)d.counts[id]=n;else delete d.counts[id];
+      if(n>=t)d.done[id]=true;else delete d.done[id];
+      break;
+    case 'secchk':
+      var k=+el.getAttribute('data-si'),x=secStats(d,k),all=x.t&&x.n===x.t;
+      d.sections[k].steps.forEach(function(s,i){if(!s.info&&vis(s,d))setStep(d,k+'_'+i,!all);});
+      break;
+    case 'term':termOpen(el.getAttribute('data-k'));return;
+    case 'sz-edit':szOpen();return;
+    case 'reconnect':location.reload();return;
+    case 'gg-edit':ggOpen();return;
+    case 'gg-use':if(!d.gauge)return;d.gauge.use=el.getAttribute('data-v')==='1';break;
+    case 'photo-add':phEl.click();return;
+    case 'photo-open':lbIndex=+el.getAttribute('data-i');lbConfirm=false;renderLb();return;
+    case 'fold':var f=el.getAttribute('data-si');if(d.folded[f])delete d.folded[f];else d.folded[f]=true;break;
+    case 'reset-yes':d.done={};d.counts={};d.mats={};confirmReset=false;break;
+    default:return;
+  }
+  touch(route);render();
+}
+app.addEventListener('click',function(ev){
+  if(ev.target.closest('a.ext'))return;
+  var el=ev.target.closest('[data-act]');
+  if(!el||!app.contains(el))return;
+  onAct(el.getAttribute('data-act'),el);
+});
+
+/* ---------- Import-Fenster ---------- */
+var imp=document.getElementById('imp'),paste=document.getElementById('paste'),errEl=document.getElementById('err'),fileEl=document.getElementById('file');
+function showErr(m){errEl.textContent=m;errEl.hidden=!m;}
+function openImport(){paste.value='';fileEl.value='';showErr('');imp.hidden=false;}
+function closeImport(){imp.hidden=true;}
+function doImport(text){
+  try{
+    var d=parseText(text),id=newId(),ph=d._photos||[];delete d._photos;
+    lib[id]=d;touch(id,true);closeImport();go(id);
+    if(ph.length)importPhotos(id,ph);
+  }catch(e){showErr(e.message);}
+}
+document.getElementById('impCancel').addEventListener('click',closeImport);
+document.getElementById('impGo').addEventListener('click',function(){doImport(paste.value);});
+imp.addEventListener('click',function(ev){if(ev.target===imp)closeImport();});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!imp.hidden)closeImport();});
+fileEl.addEventListener('change',function(){
+  var f=fileEl.files&&fileEl.files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){doImport(String(r.result||''));};
+  r.onerror=function(){showErr('Die Datei konnte nicht gelesen werden.');};
+  r.readAsText(f);
+});
+
+/* ---------- Fotos ---------- */
+var phEl=document.getElementById('photo'), lbEl=document.getElementById('lb'), szEl=document.getElementById('sz');
+var photoSubs={};
+function photoKey(pid){return 'anleitungslog.photos.'+pid;}
+function localPhotos(pid){try{var r=lsGet(photoKey(pid));return r?JSON.parse(r)||[]:[];}catch(e){return [];}}
+function watchPhotos(pid,cb){
+  if(store&&store.mode==='db'){
+    return store.col.doc(pid).collection('photos').orderBy('created').onSnapshot(function(s){
+      cb(s.docs.map(function(x){var v=Object.assign({},x.data());v.id=x.id;return v;}));
+    },function(){cb([]);});
+  }
+  var f=function(){cb(localPhotos(pid));};
+  photoSubs[pid]=f;f();
+  return function(){delete photoSubs[pid];};
+}
+function addPhoto(pid,p){
+  if(store&&store.mode==='db')return store.col.doc(pid).collection('photos').doc(p.id).set(strip(p));
+  return new Promise(function(res,rej){
+    var l=localPhotos(pid);l.push(p);
+    try{window.localStorage.setItem(photoKey(pid),JSON.stringify(l));}catch(e){rej(e);return;}
+    if(photoSubs[pid])photoSubs[pid]();res();
+  });
+}
+function delPhoto(pid,id){
+  if(store&&store.mode==='db')return store.col.doc(pid).collection('photos').doc(id).delete().catch(function(){});
+  var l=localPhotos(pid).filter(function(p){return p.id!==id;});
+  try{window.localStorage.setItem(photoKey(pid),JSON.stringify(l));}catch(e){}
+  if(photoSubs[pid])photoSubs[pid]();
+  return Promise.resolve();
+}
+function delAllPhotos(pid){
+  if(store&&store.mode==='db'){
+    var c=store.col.doc(pid).collection('photos');
+    c.get().then(function(s){s.docs.forEach(function(x){c.doc(x.id).delete().catch(function(){});});}).catch(function(){});
+  }else{try{window.localStorage.removeItem(photoKey(pid));}catch(e){}}
+}
+function stopWatch(){if(unwatch){try{unwatch();}catch(e){}}unwatch=null;watchId='';photoList=[];photoMsg='';lbIndex=null;}
+function syncWatch(){
+  if(route&&watchId!==route){
+    stopWatch();var pid=route;watchId=pid;
+    unwatch=watchPhotos(pid,function(l){
+      if(watchId!==pid)return;
+      var same=l.map(function(x){return x.id;}).join(',')===photoList.map(function(x){return x.id;}).join(',');
+      photoList=l;if(!same)render();
+    });
+  }else if(!route&&watchId)stopWatch();
+}
+function photosHtml(d){
+  var cov=null,i;
+  for(i=0;i<photoList.length;i++)if(photoList[i].id===d.coverId)cov=photoList[i];
+  if(!cov)cov=photoList[0]||null;
+  var h='<section class="photos" aria-label="Fotos">';
+  if(cov)h+='<button class="hero" data-act="photo-open" data-i="'+photoList.indexOf(cov)+'" type="button"><img src="'+esc(cov.thumb)+'" alt="Titelbild"></button>';
+  h+='<div class="strip">';
+  if(photoList.length>1)h+=photoList.map(function(p,k){return '<button class="pt" data-act="photo-open" data-i="'+k+'" type="button"><img src="'+esc(p.thumb)+'" alt="Foto '+(k+1)+'"></button>';}).join('');
+  if(photoList.length<MAXPH)h+='<button class="pt add" data-act="photo-add" type="button" aria-label="Foto hinzufügen"><span class="plus">+</span><span class="eyebrow">Foto</span></button>';
+  h+='</div>';
+  if(photoMsg)h+='<div class="err" role="alert">'+esc(photoMsg)+'</div>';
+  return h+'</section>';
+}
+function loadImg(file){
+  return new Promise(function(res,rej){
+    var u=URL.createObjectURL(file),im=new Image();
+    im.onload=function(){URL.revokeObjectURL(u);res(im);};
+    im.onerror=function(){URL.revokeObjectURL(u);rej(new Error('bild'));};
+    im.src=u;
+  });
+}
+function scaled(im,max,q){
+  var w=im.naturalWidth,h=im.naturalHeight,r=Math.min(1,max/Math.max(w,h));
+  var c=document.createElement('canvas');c.width=Math.max(1,Math.round(w*r));c.height=Math.max(1,Math.round(h*r));
+  var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+  return c.toDataURL('image/jpeg',q);
+}
+function loadSrc(src){
+  return new Promise(function(res,rej){var im=new Image();im.onload=function(){res(im);};im.onerror=function(){rej(new Error('bild'));};im.src=src;});
+}
+function importPhotos(pid,list){
+  var chain=Promise.resolve(),n=0;
+  photoMsg='Fotos werden importiert …';render();
+  list.forEach(function(f,i){
+    chain=chain.then(function(){return loadSrc(f.src);}).then(function(im){
+      var p=buildPhoto(im,i);p.caption=f.cap||'';
+      return addPhoto(pid,p).then(function(){
+        n++;
+        if(lib[pid]&&!lib[pid].coverId){lib[pid].coverId=p.id;lib[pid].cover=p.cover;touch(pid);}
+      });
+    }).catch(function(){});
+  });
+  chain.then(function(){photoMsg=n<list.length?'Nicht alle Fotos konnten importiert werden.':'';render();});
+}
+function makePhoto(file,i){return loadImg(file).then(function(im){return buildPhoto(im,i);});}
+function buildPhoto(im,i){
+  {
+    var data='',dims=[1200,1000,800,640],qs=[0.78,0.68,0.58],a,b;
+    outer:for(a=0;a<dims.length;a++)for(b=0;b<qs.length;b++){data=scaled(im,dims[a],qs[b]);if(data.length<=170000)break outer;}
+    return {id:'f'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),data:data,thumb:scaled(im,480,0.7),cover:scaled(im,160,0.7),created:Date.now()+i};
+  }
+}
+function onPhotos(list){
+  var pid=route,d=lib[pid];if(!d)return;
+  var files=Array.prototype.slice.call(list);if(!files.length)return;
+  var room=Math.max(0,MAXPH-photoList.length);
+  photoMsg=files.length>room?'Pro Anleitung sind höchstens '+MAXPH+' Fotos möglich.':'';
+  files=files.slice(0,room);
+  if(!files.length){render();return;}
+  var chain=Promise.resolve();
+  files.forEach(function(f,i){
+    chain=chain.then(function(){return makePhoto(f,i);}).then(function(p){
+      return addPhoto(pid,p).then(function(){
+        if(lib[pid]&&!lib[pid].coverId){lib[pid].coverId=p.id;lib[pid].cover=p.cover;touch(pid);render();}
+      });
+    }).catch(function(e){
+      photoMsg=e&&e.message==='bild'?'Dieses Bild konnte nicht gelesen werden.':'Foto konnte nicht gespeichert werden. Der Speicher ist eventuell voll.';
+      render();
+    });
+  });
+  chain.then(function(){phEl.value='';});
+}
+function renderLb(){
+  var p=lbIndex!=null?photoList[lbIndex]:null,d=route?lib[route]:null;
+  if(!p||!d){lbEl.hidden=true;lbEl.innerHTML='';lbIndex=null;return;}
+  var isCover=d.coverId===p.id||(!d.coverId&&lbIndex===0),n=photoList.length;
+  var h='<div class="stage"><img src="'+esc(p.data)+'" alt="Foto '+(lbIndex+1)+'"></div>'+(p.caption?'<div class="acts"><span>'+esc(p.caption)+'</span></div>':'')+'<div class="acts">';
+  if(n>1)h+='<button class="btn" data-act="lb-prev" type="button" aria-label="Vorheriges Foto">‹</button><span class="count">'+(lbIndex+1)+' / '+n+'</span><button class="btn" data-act="lb-next" type="button" aria-label="Nächstes Foto">›</button>';
+  h+='</div><div class="acts">';
+  if(lbConfirm)h+='<span>Foto löschen?</span><button class="btn danger" data-act="lb-del-yes" type="button">Ja, löschen</button><button class="btn" data-act="lb-cancel" type="button">Abbrechen</button>';
+  else h+='<button class="btn" data-act="lb-cover" type="button"'+(isCover?' disabled':'')+'>'+(isCover?'Ist Titelbild':'Als Titelbild')+'</button><button class="btn danger" data-act="lb-del" type="button">Löschen</button><button class="btn" data-act="lb-close" type="button">Schließen</button>';
+  h+='</div>';
+  lbEl.innerHTML=h;lbEl.hidden=false;
+}
+lbEl.addEventListener('click',function(ev){
+  var el=ev.target.closest('[data-act]');if(!el)return;
+  var a=el.getAttribute('data-act'),d=route?lib[route]:null,p=photoList[lbIndex],n=photoList.length;
+  if(a==='lb-close'){lbIndex=null;lbConfirm=false;}
+  else if(a==='lb-prev'){lbIndex=(lbIndex+n-1)%n;lbConfirm=false;}
+  else if(a==='lb-next'){lbIndex=(lbIndex+1)%n;lbConfirm=false;}
+  else if(a==='lb-del'){lbConfirm=true;}
+  else if(a==='lb-cancel'){lbConfirm=false;}
+  else if(a==='lb-cover'&&d&&p){d.coverId=p.id;d.cover=p.cover;touch(route);render();return;}
+  else if(a==='lb-del-yes'&&d&&p){
+    var rest=photoList.filter(function(x){return x.id!==p.id;});
+    if(d.coverId===p.id||!d.coverId){d.coverId=rest[0]?rest[0].id:'';d.cover=rest[0]?rest[0].cover:'';touch(route);}
+    lbIndex=null;lbConfirm=false;delPhoto(route,p.id);render();return;
+  }
+  renderLb();
+});
+phEl.addEventListener('change',function(){if(phEl.files&&phEl.files.length)onPhotos(phEl.files);});
+
+/* ---------- Größen bearbeiten ---------- */
+function transform(d,fn){
+  var n=0;
+  function tx(s){return String(s==null?'':s).replace(RE,function(){var a=arguments;return fn(phInfo(a),n++,s,a[0],a[a.length-2]);});}
+  d.sections.forEach(function(sec){
+    sec.title=tx(sec.title);sec.note=tx(sec.note);
+    sec.steps.forEach(function(st){st.label=tx(st.label);st.text=tx(st.text);st.note=tx(st.note);if(st.counter)st.counter.target=tx(st.counter.target);});
+  });
+  d.meta.forEach(function(m){m.v=tx(m.v);});
+  d.materials=d.materials.map(tx);
+}
+function expand(inner,d){
+  var parts=inner.split('|').map(function(s){return s.trim();}),n=Math.max(d.sizes.length,1);
+  while(parts.length<n)parts.push(parts[parts.length-1]);
+  return parts.slice(0,n);
+}
+function occurrences(d){
+  var list=[],c=JSON.parse(JSON.stringify(d));
+  transform(c,function(ph,k,s,m,off){
+    if(isCalc(ph.inner)){return m;}
+    var parts=expand(ph.inner,d),before=plain(s.slice(0,off),d),after=plain(s.slice(off+m.length),d);
+    if(before.length>40)before='…'+before.slice(-40);
+    if(after.length>30)after=after.slice(0,30)+'…';
+    list.push({k:k,parts:parts,ctx:before+(ph.type?ph.type+' ':'')+'['+parts.join(' | ')+']'+after});
+    return m;
+  });
+  return list;
+}
+function clean(v){v=String(v==null?'':v).replace(/[|{}]/g,'').trim();return v||'–';}
+function szOpen(){
+  var d=lib[route];if(!d)return;
+  sz={rows:d.sizes.map(function(n,i){return {uid:'r'+i,name:n,orig:i};}),vals:{},dv:{},err:'',seq:0,occ:occurrences(d)};
+  Object.keys(d.dims||{}).forEach(function(k){d.sizes.forEach(function(n,i){sz.dv['r'+i+'|'+k]=d.dims[k][Math.min(i,d.dims[k].length-1)]||'';});});
+  renderSz();szEl.hidden=false;
+}
+function szClose(){szEl.hidden=true;szEl.innerHTML='';sz=null;}
+function renderSz(){
+  if(!sz)return;
+  var old=szEl.querySelector('.dlg'),top=old?old.scrollTop:0;
+  var news=sz.rows.filter(function(r){return r.orig==null;});
+  var h='<div class="dlg"><h2>Größen bearbeiten</h2><p>Namen ändern, umsortieren, löschen oder neue Größen anlegen. Die Zahlen der Anleitung folgen automatisch.</p><div class="szl">';
+  sz.rows.forEach(function(r,i){
+    h+='<div class="szr"><button class="ib" data-act="sz-up" data-uid="'+r.uid+'" type="button" aria-label="Nach oben"'+(i===0?' disabled':'')+'>↑</button>'+
+      '<button class="ib" data-act="sz-down" data-uid="'+r.uid+'" type="button" aria-label="Nach unten"'+(i===sz.rows.length-1?' disabled':'')+'>↓</button>'+
+      '<input type="text" class="szn" data-uid="'+r.uid+'" value="'+esc(r.name)+'" maxlength="20" aria-label="Name der Größe" placeholder="Name">'+
+      (r.orig==null?'<span class="new-tag">neu</span>':'')+
+      '<button class="ib" data-act="sz-del" data-uid="'+r.uid+'" type="button" aria-label="Größe löschen">✕</button></div>';
+  });
+  h+='</div><button class="btn" data-act="sz-add" type="button">Größe hinzufügen</button>';
+  if(news.length){
+    h+='<h3>Zahlen für neue Größen</h3>';
+    if(!sz.occ.length)h+='<p>In dieser Anleitung gibt es keine größenabhängigen Zahlen.</p>';
+    else h+='<p>Vorbelegt mit der Zahl der letzten Größe. Ändere, was abweicht.</p>';
+    news.forEach(function(r){
+      if(!sz.occ.length)return;
+      h+='<div class="szg"><h3>'+esc(r.name.trim()||'Neue Größe')+'</h3>';
+      sz.occ.forEach(function(o){
+        var key=r.uid+':'+o.k,v=sz.vals[key]!=null?sz.vals[key]:o.parts[o.parts.length-1];
+        h+='<label class="szv"><span class="ctx">'+esc(o.ctx)+'</span><input type="text" class="szval" data-key="'+esc(key)+'" value="'+esc(v)+'" maxlength="24"></label>';
+      });
+      h+='</div>';
+    });
+  }
+  var dk=Object.keys((lib[route]&&lib[route].dims)||{});
+  if(dk.length){
+    h+='<h3>Maße je Größe (cm)</h3><p>Aus diesen Maßen rechnet die App die Maschen und Reihen nach deiner Maschenprobe.</p>';
+    sz.rows.forEach(function(r,i){
+      h+='<div class="szg"><h3>'+esc(r.name.trim()||'Neue Größe')+'</h3>';
+      dk.forEach(function(k){
+        var key=r.uid+'|'+k,v=sz.dv[key];
+        if(v==null){var prev=i>0?sz.dv[sz.rows[i-1].uid+'|'+k]:'';v=prev||'';}
+        h+='<label class="szv"><span class="ctx">'+esc(k.replace(/_/g,' '))+'</span><input type="text" inputmode="decimal" class="szd" data-key="'+esc(key)+'" value="'+esc(v)+'" maxlength="8"></label>';
+      });
+      h+='</div>';
+    });
+  }
+  if(sz.err)h+='<div class="err" role="alert">'+esc(sz.err)+'</div>';
+  h+='<div class="row"><button class="btn ghost" data-act="sz-cancel" type="button">Abbrechen</button><button class="btn primary" data-act="sz-save" type="button">Speichern</button></div></div>';
+  szEl.innerHTML=h;
+  var nd=szEl.querySelector('.dlg');if(nd)nd.scrollTop=top;
+}
+function szSave(){
+  var d=lib[route];if(!d||!sz)return;
+  var rows=sz.rows,names=rows.map(function(r){return r.name.trim();}),seen={},i;
+  for(i=0;i<names.length;i++){
+    if(!names[i]){sz.err='Jede Größe braucht einen Namen.';renderSz();return;}
+    if(/[|{}]/.test(names[i])){sz.err='Namen dürfen die Zeichen | { } nicht enthalten.';renderSz();return;}
+    var low=names[i].toLowerCase();
+    if(seen[low]){sz.err='Der Name „'+names[i]+'“ kommt doppelt vor.';renderSz();return;}
+    seen[low]=1;
+  }
+  var oldNames=d.sizes.slice(),oldSize=d.size,c=JSON.parse(JSON.stringify(d));
+  transform(c,function(ph,k,s0,m0){
+    if(isCalc(ph.inner))return m0;
+    var parts=expand(ph.inner,d);
+    var np=rows.map(function(r){
+      if(r.orig!=null)return parts[r.orig];
+      var v=sz.vals[r.uid+':'+k];return clean(v!=null?v:parts[parts.length-1]);
+    });
+    if(!np.length)np=[parts[0]];
+    if(ph.type)return '{'+ph.type+(ph.mul?'/'+ph.mul:'')+(ph.off!=null?'+'+ph.off:'')+':'+np.join('|')+'}';
+    if(ph.eq&&np.length===1)return '{='+np[0]+'}';
+    return np.length>1?'{'+np.join('|')+'}':np[0];
+  });
+  function remap(f){
+    if(!f||!f.length)return [];
+    var out=[];
+    rows.forEach(function(r,j){if(r.orig!=null&&f.indexOf(oldNames[r.orig])>-1)out.push(names[j]);});
+    return out.length?out:['\u0000'];
+  }
+  c.sections.forEach(function(sec){sec.sizes=remap(sec.sizes);sec.steps.forEach(function(st){st.sizes=remap(st.sizes);});});
+  var nd={};
+  Object.keys(d.dims||{}).forEach(function(k){
+    nd[k]=rows.map(function(r,j){
+      var v=sz.dv[r.uid+'|'+k];
+      if(v==null){v=j>0?sz.dv[rows[j-1].uid+'|'+k]:'';}
+      return String(v==null?'':v).replace(/[^\d.,]/g,'')||'0';
+    });
+  });
+  d.dims=nd;
+  d.sections=c.sections;d.meta=c.meta;d.materials=c.materials;d.sizes=names;
+  var keep=-1;rows.forEach(function(r,j){if(r.orig!=null&&oldNames[r.orig]===oldSize)keep=j;});
+  d.size=keep>-1?names[keep]:(names[0]||'');
+  touch(route,true);szClose();render();
+}
+szEl.addEventListener('click',function(ev){
+  if(ev.target===szEl){szClose();return;}
+  var el=ev.target.closest('[data-act]');if(!el||!sz)return;
+  var a=el.getAttribute('data-act'),uid=el.getAttribute('data-uid'),idx=-1,j;
+  for(j=0;j<sz.rows.length;j++)if(sz.rows[j].uid===uid)idx=j;
+  if(a==='sz-cancel'){szClose();return;}
+  if(a==='sz-save'){szSave();return;}
+  sz.err='';
+  if(a==='sz-add'){sz.seq++;sz.rows.push({uid:'n'+sz.seq,name:'',orig:null});}
+  else if(a==='sz-del'&&idx>-1)sz.rows.splice(idx,1);
+  else if(a==='sz-up'&&idx>0){var t=sz.rows[idx];sz.rows[idx]=sz.rows[idx-1];sz.rows[idx-1]=t;}
+  else if(a==='sz-down'&&idx>-1&&idx<sz.rows.length-1){var u=sz.rows[idx];sz.rows[idx]=sz.rows[idx+1];sz.rows[idx+1]=u;}
+  renderSz();
+});
+szEl.addEventListener('input',function(ev){
+  var t=ev.target;if(!sz)return;
+  if(t.classList.contains('szn')){
+    var uid=t.getAttribute('data-uid');
+    sz.rows.forEach(function(r){if(r.uid===uid)r.name=t.value;});
+  }else if(t.classList.contains('szval')){sz.vals[t.getAttribute('data-key')]=t.value;}
+  else if(t.classList.contains('szd')){sz.dv[t.getAttribute('data-key')]=t.value;}
+});
+document.addEventListener('keydown',function(ev){
+  if(ev.key!=='Escape')return;
+  if(!tmEl.hidden)termClose();else if(!ggEl.hidden)ggClose();else if(!szEl.hidden)szClose();else if(lbIndex!=null){lbIndex=null;renderLb();}
+});
+
+/* ---------- Begriffe antippen ---------- */
+var tmEl=document.getElementById('tm');
+function termOpen(k){
+  var d=route?lib[route]:null;if(!d||!d.help||!k)return;
+  var i=+k.slice(1),h='';
+  if(k[0]==='a'){
+    var a=d.help.abbr[i];if(!a)return;
+    h='<span class="tm-k">Abkürzung</span><h2>'+esc(a.k)+'</h2><p>'+esc(a.t)+'</p>';
+  }else{
+    var t=d.help.tech[i];if(!t)return;
+    h='<span class="tm-k">Technik</span><h2>'+esc(t.title)+'</h2>'+(t.text?'<p>'+escL(t.text)+'</p>':'')+(t.steps.length?'<ol>'+t.steps.map(function(x){return '<li>'+escL(x)+'</li>';}).join('')+'</ol>':'');
+  }
+  tmEl.innerHTML='<div class="dlg">'+h+'<div class="row"><button class="btn primary" data-act="tm-close" type="button">Schließen</button></div></div>';
+  tmEl.hidden=false;
+}
+function termClose(){tmEl.hidden=true;tmEl.innerHTML='';}
+tmEl.addEventListener('click',function(ev){if(ev.target===tmEl||ev.target.closest('[data-act="tm-close"]'))termClose();});
+
+/* ---------- Maschenprobe ---------- */
+var ggEl=document.getElementById('gg'),gg=null;
+function ggOpen(){
+  var d=lib[route];if(!d)return;
+  var g=d.gauge||{};
+  gg={om:g.om||'',or:g.or||'',um:g.um||'',ur:g.ur||'',err:''};
+  renderGg();ggEl.hidden=false;
+}
+function ggClose(){ggEl.hidden=true;ggEl.innerHTML='';gg=null;}
+var GGP={om:'omc',or:'orc',um:'umc',ur:'urc',omc:'om',orc:'or',umc:'um',urc:'ur'};
+function ggVal(k){
+  if(gg[k]!==undefined&&gg[k]!==null)return String(gg[k]).replace('.',',');
+  var o=GGP[k],n=num(gg[o]);
+  return n?fmtN(100/n).replace(',','.').replace('.',','):'';
+}
+function renderGg(){
+  if(!gg)return;
+  function fld(k,l){return '<label>'+l+'<input type="text" inputmode="decimal" data-f="'+k+'" value="'+esc(ggVal(k))+'"></label>';}
+  function pair(a,b,t1,t2){return '<div class="ggp">'+fld(a,t1)+fld(b,t2)+'</div>';}
+  ggEl.innerHTML='<div class="dlg"><h2>Maschenprobe</h2>'+
+    '<p>Gib entweder die Maschen auf 10 cm ein oder die cm für 10 Maschen. Das jeweils andere Feld rechnet sich selbst aus.</p>'+
+    '<div class="ggf"><h3>Meine Maschenprobe</h3>'+pair('um','umc','Maschen auf 10 cm','10 Maschen = cm')+pair('ur','urc','Reihen auf 10 cm','10 Reihen = cm')+'</div>'+
+    '<div class="ggf"><h3>Laut Anleitung (falls angegeben)</h3>'+pair('om','omc','Maschen auf 10 cm','10 Maschen = cm')+pair('or','orc','Reihen auf 10 cm','10 Reihen = cm')+
+    '<p class="sizehint">Ohne Angabe der Anleitung werden nur Zahlen umgerechnet, die dort als Maß in cm stehen.</p></div>'+
+    '<div class="row"><button class="btn ghost" data-act="gg-cancel" type="button">Abbrechen</button>'+
+    '<button class="btn ghost" data-act="gg-clear" type="button">Meine Werte löschen</button>'+
+    '<button class="btn primary" data-act="gg-save" type="button">Speichern</button></div></div>';
+}
+ggEl.addEventListener('input',function(ev){
+  var f=ev.target.getAttribute&&ev.target.getAttribute('data-f');if(!f||!gg)return;
+  gg[f]=ev.target.value;
+  var o=GGP[f],n=num(ev.target.value),inp=ggEl.querySelector('[data-f="'+o+'"]');
+  gg[o]=n?fmtN(100/n):'';
+  if(inp)inp.value=String(gg[o]);
+});
+ggEl.addEventListener('click',function(ev){
+  if(ev.target===ggEl){ggClose();return;}
+  var el=ev.target.closest('[data-act]');if(!el||!gg)return;
+  var a=el.getAttribute('data-act'),d=lib[route];
+  if(a==='gg-cancel'){ggClose();return;}
+  if(!d)return;
+  if(a==='gg-clear'){gg.um='';gg.ur='';gg.umc='';gg.urc='';gg.err='';renderGg();return;}
+  if(a==='gg-save'){
+    var om=num(gg.om),or=num(gg.or),um=num(gg.um),ur=num(gg.ur);
+    d.gauge={om:om,or:or,um:um,ur:ur,use:true};
+    touch(route,true);ggClose();render();
+  }
+});
+
+var SPEC="Wandle die folgende Handarbeitsanleitung in reines JSON um. Gib nur das JSON aus, ohne Erklärung und ohne Codeblock-Zeichen.\n\nAufbau (alle Felder außer titel und abschnitte sind optional):\n{\"titel\":\"Name\",\"technik\":\"stricken | haekeln | naehen | sonstiges\",\"groessen\":[\"S\",\"M\",\"L\"],\n\"maschenprobe\":{\"maschen\":22,\"reihen\":30},\n\"meta\":{\"Garn\":\"…\",\"Nadeln\":\"…\"},\n\"material\":[\"Wolle: {350|400|450} g\",\"Maschenmarkierer\"],\n\"erklaerung\":{\"abkuerzungen\":[{\"kurz\":\"re\",\"text\":\"rechts\"}],\n \"techniken\":[{\"titel\":\"Rippenmuster\",\"begriffe\":[\"Rippenmuster\"],\"text\":\"Kurz erklärt\",\"schritte\":[\"2 M re\",\"2 M li\"]}]},\n\"abschnitte\":[{\"titel\":\"Rumpfteil\",\"hinweis\":\"optional\",\"groessen\":[\"M\",\"L\"],\n \"schritte\":[{\"label\":\"R 1\",\"text\":\"{88|96|104} M anschlagen\",\"hinweis\":\"optional\",\n  \"zaehler\":{\"ziel\":\"{R:20|22|24}\",\"einheit\":\"Reihen\"},\"groessen\":[\"S\",\"M\"]},\n  {\"info\":true,\"text\":\"Hinweis ohne Häkchen\"}]}]}\n\nRegeln:\n- Zahlen, die je nach Größe wechseln, stehen als {a|b|c} in der Reihenfolge von \"groessen\". Schritte oder Abschnitte nur für einzelne Größen bekommen \"groessen\".\n- Maschenzahlen als {M:88|96|104}, Reihen und Runden als {R:30|34|38}. Rechnen: Gibt die Anleitung Maße in cm je Größe an, lege sie als \"masse\":{\"Hoehe\":[14,16],\"Umschlag\":[2,2]} an (ein Wert je Größe, Namen ohne Leerzeichen). Wiederkehrende Rechnungen kommen als \"formeln\":{\"Buendchen\":\"@Hoehe/3+@Umschlag\"} dazu und werden mit @Name genutzt. Im Text steht {@Hoehe} für ein Maß in cm, {M:@Hoehe} für die Maschenzahl und {R:@Umfang} für die Reihenzahl aus einem Maß. Allgemeine Rechnung: {#Ausdruck}, zum Beispiel {#m(@Hoehe+@Buendchen)} (Maschen aus cm), {#r(@Umfang)} (Reihen aus cm), {#round(m(@Breite)/2)}. Erlaubt sind + - * / Klammern, round, ceil, floor, min, max, abs, m(cm) für Maschen, r(cm) für Reihen, S für die Nummer der Größe, M10 und R10 für meine Maschen und Reihen auf 10 cm. Teilbarkeit: {#/4+2:m(@Breite)}. Rechne selbst nichts in Maschen um, die App tut es mit meiner Maschenprobe. Sonst gilt: Angaben, die je Größe wechseln, aber nur eine Größe haben, schreibe als {=42 cm}. Stehen in der Anleitung nur Maße ohne Maschenprobe, schreibe die Maße als {M:45 cm|51 cm} (Breite in cm, wird in Maschen umgerechnet) oder {R:20 cm} (Höhe in cm). Hat die Anleitung nur eine Größe, schreibe {M:88} oder {R:30}.\n- Muss eine Maschenzahl teilbar sein, schreibe {M/8:88|96} (teilbar durch 8) oder {M/4+2:90|98} (Vielfaches von 4 plus 2).\n- Wiederholungen wie \"20 Reihen stricken\" bekommen einen \"zaehler\".\n- Erkläre in \"erklaerung\" alle vorkommenden Abkürzungen und Techniken, aufwendige Techniken in 2 bis 4 Schritten. \"begriffe\" sind Wörter, die im Text vorkommen und antippbar sein sollen.";
+var specEl=document.getElementById('spec');
+if(specEl)specEl.value=SPEC;
+document.getElementById('specCopy').addEventListener('click',function(){
+  var b=this;
+  function ok(){b.textContent='Kopiert';setTimeout(function(){b.textContent='Text kopieren';},1600);}
+  function fallback(){specEl.focus();specEl.select();try{if(document.execCommand('copy'))ok();}catch(e){}}
+  try{navigator.clipboard.writeText(SPEC).then(ok,fallback);}catch(e){fallback();}
+});
+
+/* Start */
+try{var h=location.hash.replace('#','');if(h)route=h;}catch(e){}
+render();
+initStore();
+})();
+</script>
+
+</body>
+</html>
