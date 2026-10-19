@@ -25,11 +25,14 @@ async function readBody(req) {
 }
 
 export default async (req) => {
-  const expected = process.env.ACCESS_CODE;
+  let expected = "";
+  try { expected = (typeof Netlify !== "undefined" && Netlify.env.get("ACCESS_CODE")) || ""; } catch (e) {}
+  if (!expected) expected = process.env.ACCESS_CODE || "";
+  expected = String(expected).trim();
   if (!expected) {
     return reply({ error: "In Netlify fehlt die Variable ACCESS_CODE. Lege sie an und starte einen neuen Deploy." }, 500);
   }
-  const given = req.headers.get("x-code") || "";
+  const given = (req.headers.get("x-code") || "").trim();
   if (!timingSafeEqual(digest(given), digest(expected))) return reply({ error: "auth" }, 401);
 
   const [kind, a, b] = new URL(req.url).pathname.replace(/^\/api\/?/, "").split("/").filter(Boolean);
