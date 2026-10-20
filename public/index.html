@@ -119,6 +119,11 @@ mark{background:var(--mark);color:var(--mark-ink);padding:0 .28em;border-radius:
 .cnt{font:500 0.8125rem/1 var(--f-mono);color:var(--muted);white-space:nowrap}
 .chev{flex:none;width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;transition:transform .15s}
 .sheet.open .chev{transform:rotate(180deg)}
+.edb{min-height:36px;min-width:36px;padding:0 10px;border:1.5px solid var(--line);border-radius:6px;background:var(--sheet);color:var(--muted);font-size:0.8125rem;font-weight:600;cursor:pointer;margin:6px 0 0}
+#ed label{display:block;font-weight:600;margin:10px 0 4px}
+#ed textarea{min-height:90px;font-family:var(--f-body)}
+#ed input[type=text]{width:100%}
+.edd{font-size:0.8125rem;color:var(--muted)}
 .sec-note{margin:0;padding:0 16px 12px;color:var(--muted);font-size:0.875rem}
 .steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 
@@ -285,6 +290,7 @@ mark.gm{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px var(--
 </div>
 <div class="ov" id="tm" hidden role="dialog" aria-modal="true" aria-label="Erklärung"></div>
 <div class="ov" id="gg" hidden role="dialog" aria-modal="true" aria-label="Maschenprobe"></div>
+<div class="ov" id="ed" hidden role="dialog" aria-modal="true" aria-label="Bearbeiten"></div>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto"></div>
 <input type="file" id="photo" accept="image/*" multiple hidden>
 
@@ -297,6 +303,7 @@ var CRAFT={haekeln:'Häkeln',stricken:'Stricken',naehen:'Nähen',sonstiges:'Hand
 var LSKEY='anleitungslog.v1', SEEDKEY='anleitungslog.seeded';
 var app=document.getElementById('app');
 var lib={}, dirty={}, ver={}, timers={}, deleted={}, store=null, queue=Promise.resolve(), ready=false;
+var editMode=false;
 var storeNote='',slow=false,route='', confirmDel=false, confirmReset=false;
 var photoList=[], watchId='', unwatch=null, photoMsg='', lbIndex=null, lbConfirm=false, sz=null, MAXPH=12;
 
@@ -836,12 +843,14 @@ function renderLibrary(){
 
 function stepHtml(d,si,ti,s){
   var id=si+'_'+ti;
-  if(s.info)return '<li class="info"><span class="eyebrow">Hinweis</span><div>'+rich(s.text,d)+'</div></li>';
+  var EB=editMode?'<button class="edb" data-act="ed-open" data-si="'+si+'" data-ti="'+ti+'" type="button" aria-label="Eintrag bearbeiten">✎ Bearbeiten</button>':'';
+  if(s.info)return '<li class="info"><span class="eyebrow">Hinweis</span><div>'+rich(s.text,d)+'</div>'+EB+'</li>';
   var done=!!d.done[id],t=target(s,d),n=d.counts[id]|0;
   var h='<li class="step'+(done?' done':'')+'" data-act="step" data-id="'+id+'">'+
     '<button class="chk" data-act="step" data-id="'+id+'" role="checkbox" aria-checked="'+done+'" aria-label="Schritt abhaken" type="button"><span class="box'+(done?' on':'')+'">'+TICK+'</span></button>'+
     '<div class="body">'+(s.label?'<span class="lbl">'+esc(s.label)+'</span><br>':'')+'<span class="txt">'+rich(s.text,d)+'</span>';
   if(s.note)h+='<span class="note">'+rich(s.note,d)+'</span>';
+  h+=EB;
   if(t){
     h+='<div class="ctr"><button data-act="dec" data-id="'+id+'" aria-label="Eine weniger" type="button">−</button>'+
       '<span class="num"><b>'+n+'</b> / '+t+'</span>'+
@@ -898,6 +907,7 @@ function renderPattern(d){
   else h+='<button class="btn ghost" data-act="sz-edit" type="button" style="align-self:flex-start">'+(d.sizes.length?'Größen bearbeiten':'Größen anlegen')+'</button>';
   if(d.meta.length)h+='<dl class="meta">'+d.meta.map(function(m){return '<dt>'+esc(m.k)+'</dt><dd>'+rich(m.v,d)+'</dd>';}).join('')+'</dl>';
   h+=gaugeHtml(d)+'</div>';
+  h+='<div class="row" style="padding:0 16px"><button class="btn'+(editMode?' primary':' ghost')+'" data-act="ed-mode" type="button" aria-pressed="'+editMode+'">'+(editMode?'Bearbeiten beenden':'Texte bearbeiten')+'</button>'+(editMode?'<button class="btn" data-act="ed-open" data-si="-1" data-ti="-1" type="button">✎ Titel &amp; Angaben</button>':'')+'</div>';
   h+=photosHtml(d);
   h+=helpHtml(d);
 
@@ -922,6 +932,7 @@ function renderPattern(d){
       '<button class="st" data-act="fold" data-si="'+si+'" aria-expanded="'+open+'" type="button"><span class="stitle">'+esc(plain(sec.title,d))+'</span><span class="cnt">'+x.n+'/'+x.t+'</span>'+CHEV+'</button></div>';
     if(open){
       if(sec.note)h+='<p class="sec-note">'+rich(sec.note,d)+'</p>';
+      if(editMode)h+='<p class="sec-note"><button class="edb" data-act="ed-open" data-si="'+si+'" data-ti="-1" type="button">✎ Abschnitt bearbeiten</button></p>';
       h+='<ol class="steps">';
       sec.steps.forEach(function(stp,ti){if(vis(stp,d))h+=stepHtml(d,si,ti,stp);});
       h+='</ol>';
@@ -935,6 +946,8 @@ function renderPattern(d){
   }else if(confirmDel){
     h+='<span class="q">Diese Anleitung samt Fortschritt löschen?</span><div class="row"><button class="btn danger" data-act="del-yes" type="button">Ja, löschen</button><button class="btn ghost" data-act="cancel" type="button">Abbrechen</button></div>';
   }else{
+    h+='<div class="row"><button class="btn" data-act="exp-dl" type="button">Als JSON herunterladen</button><button class="btn ghost" data-act="exp-copy" type="button">JSON kopieren</button></div>';
+    if(expMsg)h+='<p class="sizehint">'+esc(expMsg)+'</p>';
     h+='<div class="row"><button class="btn ghost" data-act="reset" type="button">Fortschritt zurücksetzen</button><button class="btn ghost" data-act="del" type="button">Anleitung löschen</button></div>';
   }
   h+='</div>';
@@ -948,7 +961,7 @@ function render(){
   if(route)renderPattern(lib[route]);else renderLibrary();
   renderLb();
 }
-function go(id){route=id||'';confirmDel=false;confirmReset=false;lbIndex=null;lbConfirm=false;render();window.scrollTo(0,0);}
+function go(id){editMode=false;expMsg='';route=id||'';confirmDel=false;confirmReset=false;lbIndex=null;lbConfirm=false;render();window.scrollTo(0,0);}
 
 /* ---------- Aktionen ---------- */
 function setStep(d,id,on){
@@ -987,6 +1000,10 @@ function onAct(act,el){
       break;
     case 'term':termOpen(el.getAttribute('data-k'));return;
     case 'sz-edit':szOpen();return;
+    case 'exp-dl':exportJson(false);return;
+    case 'exp-copy':exportJson(true);return;
+    case 'ed-mode':editMode=!editMode;render();return;
+    case 'ed-open':edOpen(+el.getAttribute('data-si'),+el.getAttribute('data-ti'));return;
     case 'reconnect':location.reload();return;
     case 'gg-edit':ggOpen();return;
     case 'gg-use':if(!d.gauge)return;d.gauge.use=el.getAttribute('data-v')==='1';break;
@@ -1327,7 +1344,7 @@ szEl.addEventListener('input',function(ev){
 });
 document.addEventListener('keydown',function(ev){
   if(ev.key!=='Escape')return;
-  if(!tmEl.hidden)termClose();else if(!ggEl.hidden)ggClose();else if(!szEl.hidden)szClose();else if(lbIndex!=null){lbIndex=null;renderLb();}
+  if(!tmEl.hidden)termClose();else if(!edEl.hidden)edClose();else if(!ggEl.hidden)ggClose();else if(!szEl.hidden)szClose();else if(lbIndex!=null){lbIndex=null;renderLb();}
 });
 
 /* ---------- Begriffe antippen ---------- */
@@ -1347,6 +1364,119 @@ function termOpen(k){
 }
 function termClose(){tmEl.hidden=true;tmEl.innerHTML='';}
 tmEl.addEventListener('click',function(ev){if(ev.target===tmEl||ev.target.closest('[data-act="tm-close"]'))termClose();});
+
+/* ---------- JSON-Export ---------- */
+var expMsg='';
+function pruneJ(o){var r={};Object.keys(o).forEach(function(k){var v=o[k];if(v===''||v==null||(Array.isArray(v)&&!v.length)||v===false)return;r[k]=v;});return r;}
+function getPhotosFor(pid){
+  if(store&&store.mode==='db'){
+    return store.col.doc(pid).collection('photos').get().then(function(q){return q.docs.map(function(x){return x.data();}).sort(function(a,b){return (a.created||0)-(b.created||0);});}).catch(function(){return [];});
+  }
+  return Promise.resolve(localPhotos(pid));
+}
+function buildJson(d,photos){
+  var j={titel:d.title,technik:d.craft,groessen:d.sizes};
+  if(d.gauge&&(d.gauge.om||d.gauge.or))j.maschenprobe=pruneJ({maschen:d.gauge.om,reihen:d.gauge.or});
+  if(d.dims&&Object.keys(d.dims).length)j.masse=d.dims;
+  if(d.formulas&&Object.keys(d.formulas).length)j.formeln=d.formulas;
+  if(d.meta.length){j.meta={};d.meta.forEach(function(m){j.meta[m.k]=m.v;});}
+  if(d.materials.length)j.material=d.materials;
+  var h=d.help||{abbr:[],tech:[]},e={};
+  if(h.abbr.length)e.abkuerzungen=h.abbr.map(function(a){return {kurz:a.k,text:a.t};});
+  if(h.tech.length)e.techniken=h.tech.map(function(t){return pruneJ({titel:t.title,begriffe:t.aliases,text:t.text,schritte:t.steps});});
+  if(Object.keys(e).length)j.erklaerung=e;
+  if(photos&&photos.length)j.fotos=photos.map(function(p){return pruneJ({bild:p.data,beschriftung:p.caption});});
+  j.abschnitte=d.sections.map(function(sec){
+    var o=pruneJ({titel:sec.title,hinweis:sec.note,groessen:sec.sizes,wenn:sec.cond});
+    o.schritte=sec.steps.map(function(st){
+      var z=st.counter?pruneJ({ziel:st.counter.target,einheit:st.counter.unit}):null;
+      return pruneJ({label:st.label,text:st.text,hinweis:st.note,info:st.info,groessen:st.sizes,wenn:st.cond,zaehler:z});
+    });
+    return o;
+  });
+  return j;
+}
+function exportJson(copy){
+  var d=route?lib[route]:null;if(!d)return;
+  var pid=route;
+  getPhotosFor(pid).then(function(ph){
+    var txt=JSON.stringify(buildJson(d,ph),null,2);
+    if(copy){
+      function ok(){expMsg='JSON in die Zwischenablage kopiert.';render();}
+      function bad(){expMsg='Kopieren war nicht möglich – bitte „Als JSON herunterladen“ nutzen.';render();}
+      try{navigator.clipboard.writeText(txt).then(ok,bad);}catch(e){bad();}
+      return;
+    }
+    var name=(d.title||'anleitung').toLowerCase().replace(/[^a-z0-9äöüß]+/g,'-').replace(/^-+|-+$/g,'')||'anleitung';
+    try{
+      var b=new Blob([txt],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
+      a.href=u;a.download=name+'.json';document.body.appendChild(a);a.click();
+      setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(u);},1000);
+      expMsg='Datei „'+name+'.json“ wird heruntergeladen. Falls nichts passiert: „JSON kopieren“ nutzen.';
+    }catch(e){expMsg='Download nicht möglich – bitte „JSON kopieren“ nutzen.';}
+    render();
+  });
+}
+
+/* ---------- Texte bearbeiten ---------- */
+var edEl=document.getElementById('ed'),ed=null;
+function edTarget(d,si,ti){if(si<0)return d;var sec=d.sections[si];if(!sec)return null;return ti<0?sec:(sec.steps[ti]||null);}
+function edOpen(si,ti){
+  var d=lib[route];if(!d)return;var t=edTarget(d,si,ti);if(!t)return;
+  ed={si:si,ti:ti,head:si<0,sec:ti<0&&si>=0,info:!!t.info,changed:!!t.o&&si>=0};
+  renderEd(t);edEl.hidden=false;
+}
+function edClose(){edEl.hidden=true;edEl.innerHTML='';ed=null;}
+function renderEd(t){
+  var h='<div class="dlg"><h2>'+(ed.head?'Titel &amp; Angaben':ed.sec?'Abschnitt bearbeiten':'Eintrag bearbeiten')+'</h2>';
+  if(ed.head){
+    h+='<label for="ed-a">Titel</label><input type="text" id="ed-a" value="'+esc(t.title||'')+'">'+
+       '<label for="ed-b">Angaben unter dem Titel (eine pro Zeile, „Name: Wert“)</label><textarea id="ed-b" style="min-height:130px">'+esc(t.meta.map(function(m){return m.k+': '+m.v;}).join('\n'))+'</textarea>'+
+       '<label for="ed-c">Material (eine Zeile pro Eintrag)</label><textarea id="ed-c" style="min-height:130px">'+esc(t.materials.join('\n'))+'</textarea>';
+  }else if(ed.sec){
+    h+='<label for="ed-a">Titel</label><input type="text" id="ed-a" value="'+esc(t.title||'')+'">'+
+       '<label for="ed-c">Hinweis zum Abschnitt</label><textarea id="ed-c">'+esc(t.note||'')+'</textarea>';
+  }else{
+    if(!ed.info)h+='<label for="ed-a">Überschrift</label><input type="text" id="ed-a" value="'+esc(t.label||'')+'">';
+    h+='<label for="ed-b">Text</label><textarea id="ed-b" style="min-height:130px">'+esc(t.text||'')+'</textarea>';
+    if(!ed.info)h+='<label for="ed-c">Eigene Notiz / Hinweis</label><textarea id="ed-c" placeholder="z. B. Link, eigener Tipp, Änderung …">'+esc(t.note||'')+'</textarea>';
+  }
+  h+='<p class="edd">Links (https://…) werden automatisch antippbar. Zahlen in geschweiften Klammern wie {a|b|c} oder {#…} werden je Größe und Maschenprobe berechnet – bitte nur ändern, wenn du das willst.</p>'+
+     '<div class="row"><button class="btn ghost" data-act="ed-cancel" type="button">Abbrechen</button>'+
+     (ed.changed?'<button class="btn ghost" data-act="ed-reset" type="button">Original wiederherstellen</button>':'')+
+     '<button class="btn primary" data-act="ed-save" type="button">Speichern</button></div></div>';
+  edEl.innerHTML=h;
+}
+edEl.addEventListener('click',function(ev){
+  if(ev.target===edEl){edClose();return;}
+  var el=ev.target.closest('[data-act]');if(!el||!ed)return;
+  var a=el.getAttribute('data-act'),d=lib[route];
+  if(a==='ed-cancel'){edClose();return;}
+  if(!d)return;var t=edTarget(d,ed.si,ed.ti);if(!t){edClose();return;}
+  function val(i){var e=document.getElementById(i);return e?e.value:null;}
+  if(a==='ed-reset'){
+    if(t.o){for(var k in t.o){if(t.o[k]===''||t.o[k]==null)delete t[k];else t[k]=t.o[k];}delete t.o;}
+    touch(route,true);edClose();render();return;
+  }
+  if(a==='ed-save'&&ed.head){
+    var A0=val('ed-a'),B0=val('ed-b'),C0=val('ed-c');
+    if(A0!==null&&A0.trim())t.title=A0.trim();
+    if(B0!==null)t.meta=B0.split(/\r?\n/).map(function(l){var i=l.indexOf(':');return i>0?{k:l.slice(0,i).trim(),v:l.slice(i+1).trim()}:{k:'',v:l.trim()};}).filter(function(m){return m.v||m.k;}).map(function(m){return m.k?m:{k:'Hinweis',v:m.v};});
+    if(C0!==null)t.materials=C0.split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean);
+    touch(route,true);edClose();render();return;
+  }
+  if(a==='ed-save'){
+    if(!t.o){t.o={};(ed.sec?['title','note']:['label','text','note']).forEach(function(k){t.o[k]=t[k]==null?'':t[k];});}
+    if(ed.sec){var A=val('ed-a'),C=val('ed-c');if(A!==null&&A.trim())t.title=A.trim();t.note=(C||'').trim();}
+    else{
+      var L=val('ed-a'),T=val('ed-b'),N=val('ed-c');
+      if(L!==null)t.label=L.trim();
+      if(T!==null&&(T.trim()||ed.info))t.text=T.trim();
+      if(N!==null)t.note=N.trim();
+    }
+    touch(route,true);edClose();render();
+  }
+});
 
 /* ---------- Maschenprobe ---------- */
 var ggEl=document.getElementById('gg'),gg=null;
