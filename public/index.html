@@ -382,6 +382,7 @@ function calc(src,d,cm,depth){
       if(u==='S'||lo==='groesse'||lo==='größe')return sizeIdx(d)+1;
       if(u==='M10'){ug=true;if(M10==null)bad=true;return M10||0;}
       if(u==='R10'){ug=true;if(R10==null)bad=true;return R10||0;}
+      if(u==='MM'||u==='RR'){var mm=u==='MM'?(g.use&&g.um?g.um:g.om):(g.use&&g.ur?g.ur:g.or);if(!mm)bad=true;return mm||0;}
       if(u==='OM'){if(!g.om)bad=true;return g.om||0;}
       if(u==='OR'){if(!g.or)bad=true;return g.or||0;}
       bad=true;return 0;
@@ -486,7 +487,10 @@ function rich(s,d){
   return out.replace(/\n/g,'<br>');
 }
 function hasTag(d){return /\{[MR](?:\/\d+)?(?:\+\d+)?:/.test(JSON.stringify([d.sections,d.meta,d.materials]));}
-function vis(x,d){return !x.sizes||!x.sizes.length||!d.size||x.sizes.indexOf(d.size)>-1;}
+function vis(x,d){
+  if(x.cond){var c=calc(x.cond,d,false);if(!c||!(c.v>0.0001))return false;}
+  return !x.sizes||!x.sizes.length||!d.size||x.sizes.indexOf(d.size)>-1;
+}
 function target(s,d){if(!s.counter)return 0;var n=parseInt(plain(s.counter.target,d),10);return n>0?n:0;}
 
 /* ---------- Import: Datei prüfen und normalisieren ---------- */
@@ -503,7 +507,7 @@ function canonStep(s){
   if(typeof z==='number'||typeof z==='string')z={ziel:z};
   if(z&&typeof z==='object')z={ziel:pk(z,['ziel','target','anzahl','count']),einheit:pk(z,['einheit','unit','label'])};else z=null;
   return {label:pk(s,['label','reihe','runde','nr','nummer']),text:pk(s,['text','anweisung','beschreibung','instruction','description','schritt']),
-    hinweis:pk(s,['hinweis','notiz','note','tipp']),info:pk(s,['info','nur_info']),groessen:pk(s,['groessen','größen','sizes']),zaehler:z};
+    hinweis:pk(s,['hinweis','notiz','note','tipp']),info:pk(s,['info','nur_info']),groessen:pk(s,['groessen','größen','sizes']),wenn:pk(s,['wenn','sichtbar','bedingung','if']),zaehler:z};
 }
 function canonText(x){
   if(typeof x==='string'||typeof x==='number')return String(x);
@@ -533,7 +537,7 @@ function canon(j){
       if(!a||typeof a!=='object')return {titel:String(a||''),schritte:[]};
       var st=pk(a,K_STEPS);
       return {titel:pk(a,['titel','title','name','abschnitt']),hinweis:pk(a,['hinweis','notiz','note','beschreibung','description']),
-        groessen:pk(a,['groessen','größen','sizes']),schritte:Array.isArray(st)?st.map(canonStep):[]};
+        groessen:pk(a,['groessen','größen','sizes']),wenn:pk(a,['wenn','sichtbar','bedingung','if']),schritte:Array.isArray(st)?st.map(canonStep):[]};
     })
   };
   if(eh&&typeof eh==='object'){
@@ -573,11 +577,11 @@ function norm(j){
     var steps=a&&Array.isArray(a.schritte)?a.schritte:[];
     if(!steps.length)throw new Error('Abschnitt '+(si+1)+' hat keine „schritte“.');
     return {
-      title:str(a.titel)||('Abschnitt '+(si+1)), note:str(a.hinweis), sizes:arr(a.groessen),
+      title:str(a.titel)||('Abschnitt '+(si+1)), note:str(a.hinweis), sizes:arr(a.groessen), cond:str(a.wenn),
       steps:steps.map(function(s){
         if(typeof s==='string')s={text:s};
         var z=s.zaehler&&typeof s.zaehler==='object'?{target:str(s.zaehler.ziel),unit:str(s.zaehler.einheit)||'Wiederholungen'}:null;
-        return {label:str(s.label),text:str(s.text),note:str(s.hinweis),info:!!s.info,sizes:arr(s.groessen),counter:z};
+        return {label:str(s.label),text:str(s.text),note:str(s.hinweis),info:!!s.info,sizes:arr(s.groessen),cond:str(s.wenn),counter:z};
       })
     };
   });
@@ -1393,7 +1397,7 @@ ggEl.addEventListener('click',function(ev){
   }
 });
 
-var SPEC="Wandle die folgende Handarbeitsanleitung in reines JSON um. Gib nur das JSON aus, ohne Erklärung und ohne Codeblock-Zeichen.\n\nAufbau (alle Felder außer titel und abschnitte sind optional):\n{\"titel\":\"Name\",\"technik\":\"stricken | haekeln | naehen | sonstiges\",\"groessen\":[\"S\",\"M\",\"L\"],\n\"maschenprobe\":{\"maschen\":22,\"reihen\":30},\n\"meta\":{\"Garn\":\"…\",\"Nadeln\":\"…\"},\n\"material\":[\"Wolle: {350|400|450} g\",\"Maschenmarkierer\"],\n\"erklaerung\":{\"abkuerzungen\":[{\"kurz\":\"re\",\"text\":\"rechts\"}],\n \"techniken\":[{\"titel\":\"Rippenmuster\",\"begriffe\":[\"Rippenmuster\"],\"text\":\"Kurz erklärt\",\"schritte\":[\"2 M re\",\"2 M li\"]}]},\n\"abschnitte\":[{\"titel\":\"Rumpfteil\",\"hinweis\":\"optional\",\"groessen\":[\"M\",\"L\"],\n \"schritte\":[{\"label\":\"R 1\",\"text\":\"{88|96|104} M anschlagen\",\"hinweis\":\"optional\",\n  \"zaehler\":{\"ziel\":\"{R:20|22|24}\",\"einheit\":\"Reihen\"},\"groessen\":[\"S\",\"M\"]},\n  {\"info\":true,\"text\":\"Hinweis ohne Häkchen\"}]}]}\n\nRegeln:\n- Zahlen, die je nach Größe wechseln, stehen als {a|b|c} in der Reihenfolge von \"groessen\". Schritte oder Abschnitte nur für einzelne Größen bekommen \"groessen\".\n- Maschenzahlen als {M:88|96|104}, Reihen und Runden als {R:30|34|38}. Rechnen: Gibt die Anleitung Maße in cm je Größe an, lege sie als \"masse\":{\"Hoehe\":[14,16],\"Umschlag\":[2,2]} an (ein Wert je Größe, Namen ohne Leerzeichen). Wiederkehrende Rechnungen kommen als \"formeln\":{\"Buendchen\":\"@Hoehe/3+@Umschlag\"} dazu und werden mit @Name genutzt. Im Text steht {@Hoehe} für ein Maß in cm, {M:@Hoehe} für die Maschenzahl und {R:@Umfang} für die Reihenzahl aus einem Maß. Allgemeine Rechnung: {#Ausdruck}, zum Beispiel {#m(@Hoehe+@Buendchen)} (Maschen aus cm), {#r(@Umfang)} (Reihen aus cm), {#round(m(@Breite)/2)}. Erlaubt sind + - * / Klammern, round, ceil, floor, min, max, abs, m(cm) für Maschen, r(cm) für Reihen, S für die Nummer der Größe, M10 und R10 für meine Maschen und Reihen auf 10 cm. Teilbarkeit: {#/4+2:m(@Breite)}. Rechne selbst nichts in Maschen um, die App tut es mit meiner Maschenprobe. Sonst gilt: Angaben, die je Größe wechseln, aber nur eine Größe haben, schreibe als {=42 cm}. Stehen in der Anleitung nur Maße ohne Maschenprobe, schreibe die Maße als {M:45 cm|51 cm} (Breite in cm, wird in Maschen umgerechnet) oder {R:20 cm} (Höhe in cm). Hat die Anleitung nur eine Größe, schreibe {M:88} oder {R:30}.\n- Muss eine Maschenzahl teilbar sein, schreibe {M/8:88|96} (teilbar durch 8) oder {M/4+2:90|98} (Vielfaches von 4 plus 2).\n- Wiederholungen wie \"20 Reihen stricken\" bekommen einen \"zaehler\".\n- Erkläre in \"erklaerung\" alle vorkommenden Abkürzungen und Techniken, aufwendige Techniken in 2 bis 4 Schritten. \"begriffe\" sind Wörter, die im Text vorkommen und antippbar sein sollen.";
+var SPEC="Wandle die folgende Handarbeitsanleitung in reines JSON um. Gib nur das JSON aus, ohne Erklärung und ohne Codeblock-Zeichen.\n\nAufbau (alle Felder außer titel und abschnitte sind optional):\n{\"titel\":\"Name\",\"technik\":\"stricken | haekeln | naehen | sonstiges\",\"groessen\":[\"S\",\"M\",\"L\"],\n\"maschenprobe\":{\"maschen\":22,\"reihen\":30},\n\"meta\":{\"Garn\":\"…\",\"Nadeln\":\"…\"},\n\"material\":[\"Wolle: {350|400|450} g\",\"Maschenmarkierer\"],\n\"erklaerung\":{\"abkuerzungen\":[{\"kurz\":\"re\",\"text\":\"rechts\"}],\n \"techniken\":[{\"titel\":\"Rippenmuster\",\"begriffe\":[\"Rippenmuster\"],\"text\":\"Kurz erklärt\",\"schritte\":[\"2 M re\",\"2 M li\"]}]},\n\"abschnitte\":[{\"titel\":\"Rumpfteil\",\"hinweis\":\"optional\",\"groessen\":[\"M\",\"L\"],\n \"schritte\":[{\"label\":\"R 1\",\"text\":\"{88|96|104} M anschlagen\",\"hinweis\":\"optional\",\n  \"zaehler\":{\"ziel\":\"{R:20|22|24}\",\"einheit\":\"Reihen\"},\"groessen\":[\"S\",\"M\"]},\n  {\"info\":true,\"text\":\"Hinweis ohne Häkchen\"}]}]}\n\nRegeln:\n- Zahlen, die je nach Größe wechseln, stehen als {a|b|c} in der Reihenfolge von \"groessen\". Schritte oder Abschnitte nur für einzelne Größen bekommen \"groessen\".\n- Maschenzahlen als {M:88|96|104}, Reihen und Runden als {R:30|34|38}. Rechnen: Gibt die Anleitung Maße in cm je Größe an, lege sie als \"masse\":{\"Hoehe\":[14,16],\"Umschlag\":[2,2]} an (ein Wert je Größe, Namen ohne Leerzeichen). Wiederkehrende Rechnungen kommen als \"formeln\":{\"Buendchen\":\"@Hoehe/3+@Umschlag\"} dazu und werden mit @Name genutzt. Im Text steht {@Hoehe} für ein Maß in cm, {M:@Hoehe} für die Maschenzahl und {R:@Umfang} für die Reihenzahl aus einem Maß. Allgemeine Rechnung: {#Ausdruck}, zum Beispiel {#m(@Hoehe+@Buendchen)} (Maschen aus cm), {#r(@Umfang)} (Reihen aus cm), {#round(m(@Breite)/2)}. Erlaubt sind + - * / Klammern, round, ceil, floor, min, max, abs, m(cm) für Maschen, r(cm) für Reihen, S für die Nummer der Größe, M10 und R10 für meine Maschen und Reihen auf 10 cm (rechnet in cm, solange keine Maschenprobe eingegeben ist), MM und RR ebenso, aber ersatzweise mit der Maschenprobe der Anleitung und immer als reine Zahl, ideal für exakte Maschen- und Reihenzahlen: {#round(@Breite*MM/10)}. Teilbarkeit: {#/4+2:m(@Breite)}. Rechne selbst nichts in Maschen um, die App tut es mit meiner Maschenprobe. Sonst gilt: Angaben, die je Größe wechseln, aber nur eine Größe haben, schreibe als {=42 cm}. Stehen in der Anleitung nur Maße ohne Maschenprobe, schreibe die Maße als {M:45 cm|51 cm} (Breite in cm, wird in Maschen umgerechnet) oder {R:20 cm} (Höhe in cm). Hat die Anleitung nur eine Größe, schreibe {M:88} oder {R:30}.\n- Muss eine Maschenzahl teilbar sein, schreibe {M/8:88|96} (teilbar durch 8) oder {M/4+2:90|98} (Vielfaches von 4 plus 2).\n- Wiederholungen wie \"20 Reihen stricken\" bekommen einen \"zaehler\". Schritte oder Abschnitte, die nur unter einer Bedingung erscheinen sollen, bekommen \"wenn\":\"Formel\" (sichtbar, wenn die Formel größer als 0 ist, zum Beispiel \"@n-5\" für: nur wenn n größer als 5 ist).\n- Erkläre in \"erklaerung\" alle vorkommenden Abkürzungen und Techniken, aufwendige Techniken in 2 bis 4 Schritten. \"begriffe\" sind Wörter, die im Text vorkommen und antippbar sein sollen.";
 var specEl=document.getElementById('spec');
 if(specEl)specEl.value=SPEC;
 document.getElementById('specCopy').addEventListener('click',function(){
